@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build": "svelte-kit build"
+    "build": "svelte-kit build",
+    "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run"
   },
   "repository": {
     "type": "git",
@@ -23,15 +24,15 @@
   "bugs": {
     "url": "https://github.com/weareyou/werkenbijggdfryslan.nl/issues"
   },
-  "homepage": "https://de-groene-koers.netlify.app",
+  "homepage": "https://werken-bij-ggd-fryslan.netlify.app/",
   "devDependencies": {
-    "@supple-kit/stylelint-config-supple": "^3.0.4",
+    "@supple-kit/stylelint-config-supple": "^4.0.0",
     "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "^1.0.0-next.193",
     "postcss": "^8.3.11",
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.43.4",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.0.1",
     "svelte": "^3.44.1",
     "svelte-preprocess": "^4.8.0"
   },
