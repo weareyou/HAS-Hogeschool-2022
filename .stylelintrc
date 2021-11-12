@@ -1,0 +1,13 @@
+{
+  "extends": "@supple-kit/stylelint-config-supple",
+  "rules": {
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": [
+          "global"
+        ]
+      }
+    ]
+  }
+}
