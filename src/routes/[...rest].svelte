@@ -27,3 +27,20 @@
 </script>
 
 <h1>{data.system.name}</h1>
+
+<p>Note: the title comes from Umbraco. This list is manually created.</p>
+
+<ul>
+  <li>
+    <a href="/">Home</a>
+  </li>
+  <li>
+    <a href="/contentpage-1/">/contentpage-1/</a>
+  </li>
+  <li>
+    <a href="/contentpage-2/">/contentpage-2/</a>
+  </li>
+  <li>
+    <a href="/contentpage-2/titel-van-sub-subpagina/">/contentpage-2/titel-van-sub-subpagina/</a>
+  </li>
+</ul>
