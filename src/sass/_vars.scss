@@ -1,0 +1,25 @@
+/*  =========================================================================
+    vars
+    ========================================================================= */
+
+@forward 'node_modules/@supple-kit/supple-css/settings/defaults' with (
+  $css-modules: true,
+  $line-height: 26px,
+  $breakpoints: (
+    palm: 375px,
+    lap: 580px,
+    desk: 980px,
+    wall: 1280px,
+    tv: 1920px,
+  ),
+  $queries: (
+    lap: lap,
+    desk: desk,
+  )
+);
+
+
+/*  Fonts
+    ========================================================================= */
+
+$font-primary: 'sans-serif';

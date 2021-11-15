@@ -1,0 +1,48 @@
+/*  =========================================================================
+    foundation.generic.toplevel
+    Describes toplevel styles such as HTML, body, etc.
+    ========================================================================= */
+
+@use 'src/sass/vars';
+@use 'node_modules/@supple-kit/supple-css/tools/responsive';
+@use 'node_modules/@supple-kit/supple-css/tools/space';
+
+html {
+  // colors
+  --color-white: #ffffff;
+  --color-black: #333333;
+  // --color-gray-light: #f1f1f1;
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-black);
+  // fonts
+  --font-family-primary: #{vars.$font-primary};
+  // --font-family-secondary: 'Insignia', sans-serif;
+  --font-weight-bold: 700;
+  // animations
+  --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  --base-transition-duration: 600ms;
+  --base-transition-duration-short: 300ms;
+  // spacing
+  --space-tiny: #{space.get('tiny')};
+  --space-small: #{space.get('small')};
+  --space-base: #{space.get('base')};
+  --space-large: #{space.get('large')};
+  --space-huge: #{space.get('huge')};
+
+  font-family: var(--font-family-primary);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  text-decoration-skip-ink: auto;
+}
+
+body {
+  font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
