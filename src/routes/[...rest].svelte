@@ -10,7 +10,7 @@
     if (data.error) {
       return {
         status: data.errorCode,
-        error: new Error('Not found me.'),
+        error: data.error,
       };
     }
 
@@ -23,13 +23,17 @@
 </script>
 
 <script>
+  import Text from '../components/atoms/text/Text.svelte';
+
   export let data;
 </script>
 
 <svelte:head>
-  <title>{data.system.name}</title>
+  <title>{data.fields.title}</title>
 </svelte:head>
 
-<h1>{data.system.name}</h1>
+<h1>{data.fields.title}</h1>
+
+<Text markdown={data.fields.intro} />
 
 <p>Note: the title comes from Umbraco.</p>
