@@ -15,8 +15,10 @@
   import { page } from '$app/stores';
   import Header from '../components/organisms/Header.svelte';
   import Footer from '../components/organisms/Footer.svelte';
+  import Button from '../components/atoms/Button.svelte';
 
   $: segments = $page.path.split('/');
+  // todo: delete. Temporary dummy content.
   const navItems = [
     {
       href: '/',
@@ -43,9 +45,23 @@
 
 <style global lang="scss">
   @use 'src/sass/leading';
+
+  :global(.c-skip-link) {
+    position: absolute;
+    z-index: 2;
+    transform: translateX(-100%);
+
+    &:focus {
+      transform: none;
+    }
+  }
 </style>
 
-<a href="#main">Spring naar inhoud</a>
+<Button
+  class="c-skip-link"
+  href="#main"
+  label="Jump to content"
+/>
 
 <Header items={navItems} segments={segments} />
 
