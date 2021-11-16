@@ -12,9 +12,8 @@ const config = {
     // specifying a different adapter
     adapter: adapter(),
 
-    // hydrate the <div id="svelte"> element in src/app.html
+    // hydrate the <div id="app"> element in src/app.html
     target: '#app',
-    // router: false,
   },
 };
 

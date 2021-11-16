@@ -28,3 +28,15 @@ Note: you need a working content API.
 ## Building for production
 
 Run `npm run build` to prerender all pages to static HTML to the `/build` folder.
+
+## How does it work?
+
+SvelteKit is a meta framework. It means it is a framework that creates a full-blown website. SvelteKit makes use of
+Svelte: a front-end framework for creating reusable components.
+
+### Routing
+
+The [/src/routes/[...rest].svelte](/src/routes/[...rest].svelte) file serves as a catch-all entry point for all urls (
+the [src/routes/index.svelte](index.svelte) is only there to catch the homepage).
+
+An content API is called with the current url as a parameter. It returns the content for that page.
