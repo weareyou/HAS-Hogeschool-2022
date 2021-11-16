@@ -2,6 +2,14 @@
   export async function load({ fetch }) {
     const res = await fetch('home.json');
     const data = await res.json();
+
+    if (data.error) {
+      // return;
+      // props: {
+      //   foo: 'bar',
+      // }
+    }
+
     return {
       props: {
         data,

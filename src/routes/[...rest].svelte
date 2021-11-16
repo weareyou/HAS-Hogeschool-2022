@@ -8,10 +8,11 @@
     const data = await res.json();
 
     if (data.error) {
-      return {
-        status: data.errorCode,
-        error: data.error,
-      };
+      // return;
+      // return {
+      //   status: data.errorCode,
+      //   error: data.error,
+      // };
     }
 
     return {
@@ -28,6 +29,7 @@
   export let data;
 </script>
 
+<!--
 <svelte:head>
   <title>{data.fields.title}</title>
 </svelte:head>
@@ -35,5 +37,5 @@
 <h1>{data.fields.title}</h1>
 
 <Text markdown={data.fields.intro} />
-
+-->
 <p>Note: the title comes from Umbraco.</p>
