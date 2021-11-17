@@ -1,14 +1,15 @@
 <script context="module">
-  /*export async function load({ fetch }) {
-    const res = await fetch('/nav.json');
-    const navItems = await res.json();
+  export async function load({ fetch }) {
+    const path = 'navigation/header-navigation';
+    const res = await fetch(`/${encodeURIComponent(path)}.json`);
+    const data = await res.json();
 
     return {
       props: {
-        navItems,
+        navItems: data.fields.links,
       },
     };
-  }*/
+  }
 </script>
 <script>
   // import 'wicg-inert';
@@ -18,29 +19,7 @@
   import Button from '../components/atoms/Button.svelte';
 
   $: segments = $page.path.split('/');
-  // todo: delete. Temporary dummy content.
-  const navItems = [
-    {
-      href: '/',
-      label: 'Home',
-    },
-    {
-      href: '/contentpage-1/',
-      label: 'Subpage 1',
-    },
-    {
-      href: '/contentpage-2/',
-      label: 'Subpage 2',
-    },
-    {
-      href: '/contentpage-2/titel-van-sub-subpagina/',
-      label: 'Subpage 2 subsubpage 1',
-    },
-    {
-      href: '/not-a-page/',
-      label: 'This should give a 404',
-    },
-  ]
+  export let navItems;
 </script>
 
 <style global lang="scss">
@@ -60,7 +39,7 @@
 <Button
   class="c-skip-link"
   href="#main"
-  label="Jump to content"
+  label="Ga naar de inhoud"
 />
 
 <Header items={navItems} segments={segments} />

@@ -10,11 +10,11 @@
   {#each items as item}
     <Cell element="li">
       <a
-        href={item.href}
-        aria-current={item.href.split('/')[1] === activeSegment ? 'page': null}
+        href={item.url}
+        aria-current={item.url.split('/')[1] === activeSegment ? 'page': null}
       >
-        {item.label}
-        {#if item.href.split('/')[1] === activeSegment}(current){/if}
+        {item.name}
+        {#if item.url.split('/')[1] === activeSegment}(current){/if}
       </a>
     </Cell>
   {/each}

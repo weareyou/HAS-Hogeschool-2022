@@ -1,15 +1,10 @@
 <script context="module">
   export async function load({
-    fetch,
     error,
     status,
   }) {
-    const res = await fetch('/home.json');
-    const data = await res.json();
-
     return {
       props: {
-        data,
         error,
         status,
       },
@@ -35,3 +30,5 @@
 {#if dev && error.stack}
   <pre>{error.stack}</pre>
 {/if}
+
+<slot></slot>

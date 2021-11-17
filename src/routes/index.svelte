@@ -4,10 +4,10 @@
     const data = await res.json();
 
     if (data.error) {
-      // return;
-      // props: {
-      //   foo: 'bar',
-      // }
+      return {
+        status: data.errorCode,
+        error: data.error,
+      };
     }
 
     return {
