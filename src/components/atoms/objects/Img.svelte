@@ -1,22 +1,26 @@
 <script>
-  export let cloudinaryUrl;
-  export let alt;
-  export let lazyload = true;
+  export let domain = import.meta.env.VITE_MEDIA_URL;
+  export let url = '';
+  export let name;
+  export let lazy = true;
+  export let width = 0;
+  export let height = 0;
+  export let focalPoint;
+  export let sizes = [];
 
-  let size = 300;
-  const paths = [];
-
-  while (size <= 1500) {
-    paths.push(`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_${size}/${cloudinaryUrl} ${size}w`);
-    size += 100;
+  let path = `${domain}${url}?quality=30&center=${focalPoint.left},${focalPoint.top}`;
+  let srcset = '';
+  if (sizes) {
+    srcset = sizes.map((size) => `${path}&width=${size} ${size}w`);
   }
-
-  const srcset = paths.join(',');
 </script>
 
 <img
-  alt={alt}
-  loading={lazyload ? 'lazy' : null}
-  src={`https://res.cloudinary.com/portfolioris/image/upload/q_auto,f_auto,c_scale,w_60/${cloudinaryUrl}`}
-  srcset={`${srcset}`}
+  alt={name}
+  class="lazyload"
+  data-src={lazy ? `${domain}${url}` : null}
+  data-srcset={`${srcset.join(',')}`}
+  height="{height}"
+  sizes="auto"
+  width="{width}"
 />

@@ -24,4 +24,4 @@
   export let data;
 </script>
 
-<Rest data={data}/>
+<Rest data={data} />

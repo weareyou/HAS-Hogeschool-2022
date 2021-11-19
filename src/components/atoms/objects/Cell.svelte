@@ -7,7 +7,7 @@
   export let desk = null;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/objects/layout';
   @use 'node_modules/@supple-kit/supple-css/utilities/colspan' with (
     $in-query: (
@@ -29,8 +29,8 @@
 {#if element === 'div'}
   <div
     class="o-layout__cell
-      {lap ? `u-colspan-${lap}@from-lap` : ''}
-      {desk ? `u-colspan-${desk}@from-desk` : ''}
+      {lap ? `u-colspan-${lap}@lap` : ''}
+      {desk ? `u-colspan-${desk}@desk` : ''}
     "
     class:o-layout__fill={fill}
     class:o-layout__fit={fit}
@@ -41,8 +41,8 @@
 {:else if element === 'li'}
   <li
     class="o-layout__cell
-      {lap ? `u-colspan-${lap}@from-lap` : ''}
-      {desk ? `u-colspan-${desk}@from-desk` : ''}
+      {lap ? `u-colspan-${lap}@lap` : ''}
+      {desk ? `u-colspan-${desk}@desk` : ''}
     "
     class:o-layout__fill={fill}
     class:o-layout__fit={fit}

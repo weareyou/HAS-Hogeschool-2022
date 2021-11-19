@@ -23,7 +23,7 @@
 </script>
 
 <script>
-  import Text from '../components/atoms/text/Text.svelte';
+  import ModularPageTemplate from './_templates/$ModularPageTemplate.svelte';
 
   export let data;
 </script>
@@ -31,10 +31,11 @@
 
 <svelte:head>
   <title>{data.fields.pageTitle || data.system.name}</title>
+  <meta content="{data.fields.pageDescription}" name="description" />
 </svelte:head>
 
-<h1>{data.fields.pageTitle || data.system.name}</h1>
-
-<Text markdown={data.fields.intro} />
-
-<p>Note: the title comes from Umbraco.</p>
+{#if data.system.contentType === 'modularPage'}
+  <ModularPageTemplate modules={data.fields.grid} />
+{:else}
+  <p>Error: no templates defined for contentType <code>{data.system.contentType}</code>.</p>
+{/if}

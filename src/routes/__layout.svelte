@@ -12,7 +12,8 @@
   }
 </script>
 <script>
-  // import 'wicg-inert';
+  import 'wicg-inert';
+  import 'lazysizes';
   import { page } from '$app/stores';
   import Header from '../components/organisms/Header.svelte';
   import Footer from '../components/organisms/Footer.svelte';
