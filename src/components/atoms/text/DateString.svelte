@@ -1,5 +1,5 @@
 <script>
-  export let date;
+  export let date = '';
   export let as = null;
 
   let options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -13,7 +13,7 @@
   }
 
   const dateObj = new Date(date);
-  const dateFormat = new Intl.DateTimeFormat('en', options);
+  const dateFormat = new Intl.DateTimeFormat('nl', options);
   const dateString = dateFormat.format(dateObj);
 </script>
 

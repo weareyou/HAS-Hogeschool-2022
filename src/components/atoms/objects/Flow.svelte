@@ -2,7 +2,7 @@
   export let space = null;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'node_modules/@supple-kit/supple-css/objects/flow' with (
     $gaps: ('base', 'tiny'),
   );

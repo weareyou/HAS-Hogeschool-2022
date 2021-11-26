@@ -4,7 +4,7 @@
   export let size = null;
 </script>
 
-<style lang="scss" type="text/scss">
+<style lang="scss">
   @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/_internal/functions';
   @use 'node_modules/@supple-kit/supple-css/objects/mesh';
@@ -18,6 +18,7 @@
   <div
     class="o-mesh  o-mesh--flow"
     class:o-mesh--gap-base={gap === 'base'}
+  <!-- postcss-ignore -->
     style="--size: {size};"
   >
     <slot />

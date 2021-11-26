@@ -1,5 +1,3 @@
-import '../utilities/dotenv.js';
-
 export async function get(req) {
   const url = decodeURIComponent(req.params.rest);
   const api = `${import.meta.env.VITE_UMBRACO_API_URL}content/?route=/${url}/`;
@@ -19,5 +17,5 @@ export async function get(req) {
       ...data,
       url,
     },
-  }
+  };
 }

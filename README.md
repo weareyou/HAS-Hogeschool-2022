@@ -37,6 +37,6 @@ Svelte: a front-end framework for creating reusable components.
 ### Routing
 
 The [/src/routes/[...rest].svelte](/src/routes/[...rest].svelte) file serves as a catch-all entry point for all urls (
-the [src/routes/index.svelte](index.svelte) is only there to catch the homepage).
+the [index.svelte](src/routes/index.svelte) is only there to catch the homepage).
 
 An content API is called with the current url as a parameter. It returns the content for that page.

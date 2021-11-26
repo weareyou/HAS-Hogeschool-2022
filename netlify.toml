@@ -10,3 +10,8 @@ X-Frame-Options = "SAMEORIGIN"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "no-referrer"
 Permissions-Policy = "geolocation=(self)"
+
+[[redirects]]
+from = "/images/*"
+to = "/.netlify/functions/img"
+status = 200
