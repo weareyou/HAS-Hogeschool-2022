@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "svelte-kit dev",
+    "net": "netlify dev",
     "build": "svelte-kit build",
     "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run",
     "_hidden": "svelte-kit dev",

@@ -12,6 +12,9 @@ Referrer-Policy = "no-referrer"
 Permissions-Policy = "geolocation=(self)"
 
 [[redirects]]
-from = "/images/*"
-to = "/.netlify/functions/img"
+from = "/img/*"
+to = "/.netlify/builders/img"
 status = 200
+
+[functions]
+node_bundler = "esbuild"
