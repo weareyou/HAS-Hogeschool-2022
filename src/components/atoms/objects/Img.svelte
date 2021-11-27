@@ -1,26 +1,26 @@
 <script>
-  export let domain = import.meta.env.VITE_MEDIA_URL;
-  export let url = '';
-  export let name;
+  export let prefix = '/img';
+  export let url = ''; // "/media/pqvllilk/sunset-5536777_1920.jpg"
+  export let name; // alt...
   export let lazy = true;
   export let width = 0;
   export let height = 0;
-  export let focalPoint;
+  export let focalPoint = {};
   export let sizes = [];
 
-  let path = `${domain}${url}?quality=30&center=${focalPoint.left},${focalPoint.top}`;
-  let srcset = '';
+  let path = `${prefix}/center/${focalPoint.left},${focalPoint.top}`;
+  let srcset = [];
   if (sizes) {
-    srcset = sizes.map((size) => `${path}&width=${size} ${size}w`);
+    srcset = sizes.map((size) => `${path}/width/${size}===${url} ${size}w`);
   }
 </script>
 
 <img
   alt={name}
   class="lazyload"
-  data-src={lazy ? `${domain}${url}` : null}
-  data-srcset={`${srcset.join(',')}`}
+  data-srcset={!lazy ? `${srcset.join(',')}` : null}
+  srcset={lazy ? `${srcset.join(',')}` : null}
+  width="{width}"
   height="{height}"
   sizes="auto"
-  width="{width}"
 />

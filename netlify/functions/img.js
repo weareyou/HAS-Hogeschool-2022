@@ -8,12 +8,12 @@ const API_ROOT = process.env.VITE_MEDIA_URL;
  **/
 
 async function handler(event, context) {
-  const prefix = '/img'; //need to be stripped of the path
+  const prefix = '/img/'; //need to be stripped of the path
   const pieces = event.path.split('===');
   // turn `width/300/height/300` into `?width=300&height=300
   let isValue = false; // it's the property (width)
   let qs = '?quality=30&mode=crop';
-  pieces[1].split('/').forEach((param) => {
+  pieces[0].substring(prefix.length).split('/').forEach((param) => {
     if (!isValue) { // i.e. 'width'
       qs += `&${param}=`;
       isValue = true;
@@ -22,7 +22,7 @@ async function handler(event, context) {
       isValue = false;
     }
   });
-  const url = `${API_ROOT}${pieces[0].substring(prefix.length)}${qs}`;
+  const url = `${API_ROOT}${pieces[1]}${qs}`;
 
   try {
     const req = await fetch(url);
