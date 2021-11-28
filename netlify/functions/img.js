@@ -25,10 +25,10 @@ async function handler(event) {
     const res = await req.arrayBuffer();
     return {
       statusCode: 200,
-      body: new Buffer(res).toString('base64'),
+      body: Buffer.from(res).toString('base64'),
       isBase64Encoded: true,
       headers: {
-        'Content-Type': 'image/jpeg',
+        'Content-Type': req.headers.get('Content-Type'),
       },
     };
   } catch (e) {
