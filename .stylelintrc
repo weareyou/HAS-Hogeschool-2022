@@ -3,6 +3,13 @@
     "@supple-kit/stylelint-config-supple",
     "stylelint-config-html"
   ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.[scss,svelte]"
+      ]
+    }
+  ],
   "rules": {
     "selector-pseudo-class-no-unknown": [
       true,

@@ -1,26 +1,22 @@
 const { builder } = require('@netlify/functions');
 const fetch = require('node-fetch').default;
+
 const API_ROOT = process.env.VITE_MEDIA_URL;
 
 /**
  request (query params don't work)
- http://localhost:8888/img/media/nc5dhsxb/eiffel_tower_vertical.jpg===width/300
- **/
+ http://localhost:8888/img/width:650::media/nc5dhsxb/eiffel_tower_vertical.jpg
+ */
 
-async function handler(event, context) {
-  const prefix = '/img/'; //need to be stripped of the path
-  const pieces = event.path.split('===');
-  // turn `width/300/height/300` into `?width=300&height=300
-  let isValue = false; // it's the property (width)
+async function handler(event) {
+  const prefix = '/img/'; // need to be stripped of the path
+  const pieces = event.path.split('::');
   let qs = '?quality=30&mode=crop';
+  // turn `width:300/height:300` into `?width=300&height=300
   pieces[0].substring(prefix.length).split('/').forEach((param) => {
-    if (!isValue) { // i.e. 'width'
-      qs += `&${param}=`;
-      isValue = true;
-    } else {
-      qs += `${param}`;
-      isValue = false;
-    }
+    // param = width:300
+    const [prop, value] = param.split(':');
+    qs += `&${prop}=${value}`;
   });
   const url = `${API_ROOT}${pieces[1]}${qs}`;
 

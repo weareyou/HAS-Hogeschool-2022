@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c151ff36-292b-49c1-b36c-b998c70a9751/deploy-status)](https://app.netlify.com/sites/werken-bij-ggd-fryslan/deploys)
 
-Using SvelteKit and Umbraco as a headless backend.
+Using SvelteKit with Umbraco as a headless backend.
 
 ## Requirements
 
@@ -16,8 +16,9 @@ Install dependencies by running `npm i` from the command line.
 
 3. ### Content source
 
-You need an Umbraco API endpoint to get content. Create a copy of the [.env.example](.env.example) file and name
-it `.env`. Add the URL of the Umbraco environment where the content should come from.
+You need an Umbraco API endpoint to get content. Create a copy of the [.env.example](.env.example)
+file and name it `.env`. Add the URL of the Umbraco environment where the content should come from (
+VITE_UMBRACO_API_URL).
 
 ## Local development
 

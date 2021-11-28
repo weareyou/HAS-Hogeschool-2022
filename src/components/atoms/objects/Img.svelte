@@ -1,5 +1,4 @@
 <script>
-  export let prefix = '/img';
   export let url = ''; // "/media/pqvllilk/sunset-5536777_1920.jpg"
   export let name; // alt...
   export let lazy = true;
@@ -7,11 +6,12 @@
   export let height = 0;
   export let focalPoint = {};
   export let sizes = [];
+  const prefix = '/img/';
 
-  let path = `${prefix}/center/${focalPoint.left},${focalPoint.top}`;
+  const path = `${prefix}center:${focalPoint.left},${focalPoint.top}`;
   let srcset = [];
   if (sizes) {
-    srcset = sizes.map((size) => `${path}/width/${size}===${url} ${size}w`);
+    srcset = sizes.map((size) => `${path}/width:${size}::${url} ${size}w`);
   }
 </script>
 

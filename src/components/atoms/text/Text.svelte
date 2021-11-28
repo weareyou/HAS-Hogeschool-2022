@@ -2,7 +2,6 @@
   import { marked } from 'marked';
   import Flow from '../objects/Flow.svelte';
 
-  export let modifier = '';
   export let markdown = null;
 </script>
 

@@ -1,6 +1,6 @@
 <script>
   export let element = 'div';
-  export let gap = null;
+  export let gap = '';
   export let size = null;
 </script>
 
@@ -15,10 +15,10 @@
 </style>
 
 {#if element === 'div'}
+  <!-- postcss-ignore -->
   <div
     class="o-mesh  o-mesh--flow"
     class:o-mesh--gap-base={gap === 'base'}
-  <!-- postcss-ignore -->
     style="--size: {size};"
   >
     <slot />
@@ -26,6 +26,7 @@
 {/if}
 
 {#if element = 'ul'}
+  <!-- postcss-ignore -->
   <ul
     class="o-mesh  o-mesh--flow"
     class:o-mesh--gap-base={gap === 'base'}

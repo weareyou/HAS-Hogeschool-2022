@@ -11,7 +11,7 @@
     <Cell element="li">
       <a
         href={item.url}
-        aria-current={item.url.split('/')[1] === activeSegment ? 'page': null}
+        aria-current={item.url.split('/')[1] === activeSegment ? 'page' : null}
       >
         {item.name}
         {#if item.url.split('/')[1] === activeSegment}(current){/if}

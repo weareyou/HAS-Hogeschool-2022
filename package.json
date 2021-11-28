@@ -8,8 +8,8 @@
     "net": "netlify dev",
     "build": "svelte-kit build",
     "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run",
-    "_hidden": "svelte-kit dev",
-    "lint:styles": "stylelint src"
+    "lint:styles": "stylelint src",
+    "watch:styles": ""
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,9 @@
     "@supple-kit/stylelint-config-supple": "^4.0.0",
     "@sveltejs/adapter-static": "^1.0.0-next.21",
     "@sveltejs/kit": "^1.0.0-next.193",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-svelte3": "^3.2.1",
     "node-fetch": "^3.1.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.3.11",
