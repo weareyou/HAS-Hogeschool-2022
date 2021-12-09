@@ -5,7 +5,7 @@
   export let width = 0;
   export let height = 0;
   export let focalPoint = {};
-  export let sizes = [];
+  export let sizes = []; // [300, 600, 900]
   const prefix = '/img/';
 
   const path = `${prefix}center:${focalPoint.left},${focalPoint.top}`;

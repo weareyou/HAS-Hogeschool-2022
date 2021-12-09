@@ -1,11 +1,11 @@
 <script>
   export let href = null;
-  export let type = null;
-  export let label;
+  export let type = 'button';
+  export let label = 'button label';
   export let icon = null;
   export let hideLabel = false;
-  export let modifier = '';
-  export let isActive = false;
+  // export let modifier = '';
+  // export let isActive = false;
   export let onClick = null;
 
   let className = '';
@@ -73,14 +73,13 @@
   }
 </style>
 
+<!--  aria-current={isActive ? 'true' : null}-->
 
-<a
-  aria-current={isActive ? 'true' : null}
+<button
   class="c-button  {className}"
-  class:c-button--transparent={modifier === 'transparent'}
-  href={href}
+  {href}
   on:click={onClick}
-  type={type}
+  {type}
 >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
@@ -92,4 +91,4 @@
       </span>
     {/if}
   </span>
-</a>
+</button>

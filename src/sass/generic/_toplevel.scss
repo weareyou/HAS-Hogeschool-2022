@@ -11,9 +11,11 @@ html {
   // colors
   --color-white: #ffffff;
   --color-black: #333333;
+  --color-gray-light: #e0e0e0;
   --color-gray-medium: #7e7e7e;
   --color-background: var(--color-white);
   --color-foreground: var(--color-black);
+  --color-error: #ff0000;
 
   // fonts
   --font-family-primary: #{vars.$font-primary};
