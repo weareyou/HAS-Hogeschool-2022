@@ -19,7 +19,7 @@
     name="{name}"
     {required}
     {type}
-    value={value}
+    {value}
   >
   <span class="c-input-control__label">{label}</span>
 </label>

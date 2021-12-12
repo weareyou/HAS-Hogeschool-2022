@@ -1,11 +1,14 @@
 <script>
-  import { Select } from 'svelte-forms-lib';
+  import { key, Select } from 'svelte-forms-lib';
+  import { getContext } from 'svelte';
   import Icon from '../Icon/Icon.svelte';
 
   export let options = [];
   export let autocomplete = '';
   export let name = '';
   export let required = false;
+
+  const { errors } = getContext(key);
 </script>
 
 <style global lang="scss">
@@ -40,6 +43,8 @@
     id="{name}"
     {name}
     {required}
+    aria-describedby="{$errors[name] ? `error_${name}` : null}"
+    aria-invalid="{$errors[name] ? 'true' : null}"
   >
     {#each options as option}
       <option

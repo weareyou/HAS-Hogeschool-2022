@@ -1,10 +1,10 @@
 <script>
-  import { ErrorMessage } from 'svelte-forms-lib';
+  import { errors } from '../../../utils/form';
 
   export let name = '';
 </script>
 
-<style global lang="scss">
+<style lang="scss">
   @use 'src/sass/vars';
   @use 'node_modules/@supple-kit/supple-css/tools/typography';
 
@@ -14,7 +14,11 @@
   }
 </style>
 
-<ErrorMessage
-  class="c-error-message"
-  {name}
-/>
+{#if $errors[name]}
+  <p
+    id={`error_${name}`}
+    class="c-error-message"
+  >
+    {$errors[name]}
+  </p>
+{/if}

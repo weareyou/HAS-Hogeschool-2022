@@ -38,10 +38,11 @@ html {
   background-color: var(--color-background);
   color: var(--color-foreground);
   text-decoration-skip-ink: auto;
+  font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
 }
 
 body {
-  font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
+  // ja
 }
 
 figure {

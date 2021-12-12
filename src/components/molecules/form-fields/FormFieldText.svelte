@@ -1,15 +1,16 @@
 <script>
   import Label from '../../atoms/input/Label.svelte';
+  import InputText from '../../atoms/input/InputText.svelte';
   import ErrorMessage from '../../atoms/input/ErrorMessage.svelte';
-  import InputSelect from '../../atoms/input/InputSelect.svelte';
 
   export let name = '';
   export let label = '';
   export let hint = '';
   export let required = false;
   export let autocomplete = '';
-  export let options = [];
+  export let type = 'text';
 </script>
+
 
 <div>
   <Label
@@ -18,12 +19,12 @@
     label="{label}"
   />
 
-  <InputSelect
+  <InputText
     {autocomplete}
     {name}
-    {options}
     {required}
+    {type}
   />
 
-  <ErrorMessage />
+  <ErrorMessage {name} />
 </div>
