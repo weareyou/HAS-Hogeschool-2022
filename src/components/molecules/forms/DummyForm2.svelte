@@ -1,12 +1,12 @@
 <script>
   import { onMount } from 'svelte';
+  import { errors, formState } from '../../../utils/form';
+  import Flow from '../../atoms/objects/Flow.svelte';
   import FormFieldText from '../form-fields/FormFieldText.svelte';
   import FormFieldSubmit from '../form-fields/FormFieldSubmit.svelte';
-  import Flow from '../../atoms/objects/Flow.svelte';
-  import { errors, formState } from '../../../utils/form';
-  // import FormFieldControlset from '../form-fields/FormFieldControlset.svelte';
-  // import FormFieldTextarea from '../form-fields/FormFieldTextarea.svelte';
-  // import FormFieldSelect from '../form-fields/FormFieldSelect.svelte';
+  import FormFieldSelect from '../form-fields/FormFieldSelect.svelte';
+  import FormFieldControlset from '../form-fields/FormFieldControlset.svelte';
+  import FormFieldTextarea from '../form-fields/FormFieldTextarea.svelte';
 
   let novalidate = null;
   onMount(() => {
@@ -37,6 +37,22 @@
 
 <form action="" method="post" {novalidate} on:submit={handleSubmit}>
   <Flow>
+    <FormFieldControlset
+      label="Aanhef"
+      name="salutation"
+      options="{[
+    {
+      value: 'm',
+      label: 'Dhr.',
+    },
+    {
+      value: 'v',
+      label: 'Mevr.',
+    },
+    ]}"
+      required
+      type="radio"
+    />
     <FormFieldText
       autocomplete="given-name"
       label="Voornaam"
@@ -55,6 +71,34 @@
       name="email"
       required
       type="email"
+    />
+    <FormFieldSelect
+      label="Select"
+      name="select"
+      options={[
+       {
+         value: '',
+         label: 'Choose...',
+       },
+       {
+         value: 'blue',
+         label: 'Blue',
+       },
+       {
+         value: 'red',
+         label: 'Red',
+       },
+       {
+         value: 'green',
+         label: 'Green',
+       },
+       ]}
+      required
+    />
+    <FormFieldTextarea
+      label="Textarea"
+      name="textarea"
+      required
     />
     <FormFieldSubmit
       label="Versturen"

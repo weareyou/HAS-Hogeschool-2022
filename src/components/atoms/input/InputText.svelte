@@ -39,7 +39,6 @@
 </style>
 
 <input
-  aria-describedby="{$errors[name] ? `error_${name}` : null}"
   class="c-input"
   {autocomplete}
   id={name}
@@ -47,6 +46,7 @@
   {required}
   {type}
   aria-invalid="{$errors[name] ? 'true' : null}"
+  aria-describedby="{$errors[name] ? `error_${name}` : null}"
   bind:this={el}
   on:change={handleChange}
 />

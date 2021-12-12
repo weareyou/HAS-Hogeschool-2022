@@ -21,5 +21,5 @@
     {required}
   />
 
-  <ErrorMessage />
+  <ErrorMessage {name} />
 </div>

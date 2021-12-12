@@ -3,6 +3,7 @@
   import Layout from '../../atoms/objects/Layout.svelte';
   import Cell from '../../atoms/objects/Cell.svelte';
   import InputControl from '../../atoms/input/InputControl.svelte';
+  import ErrorMessage from '../../atoms/input/ErrorMessage.svelte';
 
   export let label = '';
   export let name = '';
@@ -35,4 +36,6 @@
       </Cell>
     {/each}
   </Layout>
+
+  <ErrorMessage {name} />
 </fieldset>

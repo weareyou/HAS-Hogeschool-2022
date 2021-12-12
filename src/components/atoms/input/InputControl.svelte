@@ -1,4 +1,7 @@
 <script>
+  import { onDestroy, onMount } from 'svelte';
+  import { formState } from '../../../utils/form';
+
   export let label = '';
   export let name = '';
   export let value = '';
@@ -7,6 +10,32 @@
   export let disabled = false;
   export let required = false;
   export let autocomplete = '';
+
+  let state;
+  let el;
+
+  formState.subscribe((value) => {
+    state = value;
+  });
+
+  const handleChange = () => {
+    state[name].touched = true;
+    state[name].validity = el.validity;
+    formState.set(state);
+  };
+
+  onMount(() => {
+    state[name] = {
+      touched: false,
+      el,
+    };
+    formState.set(state);
+  });
+
+  onDestroy(() => {
+    delete state[name];
+    formState.set(state);
+  });
 </script>
 
 <label class="c-input-control" for="{name}_{value}">
@@ -20,6 +49,8 @@
     {required}
     {type}
     {value}
+    bind:this={el}
+    on:change={handleChange}
   >
   <span class="c-input-control__label">{label}</span>
 </label>
