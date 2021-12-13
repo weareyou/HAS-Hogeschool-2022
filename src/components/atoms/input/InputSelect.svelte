@@ -1,7 +1,7 @@
 <script>
-  import Icon from '../Icon/Icon.svelte';
-  import { errors, formState } from '../../../utils/form';
   import { onDestroy, onMount } from 'svelte';
+  import { errors, formState } from '../../../utils/form';
+  import Icon from '../Icon/Icon.svelte';
 
   export let options = [];
   export let autocomplete = '';

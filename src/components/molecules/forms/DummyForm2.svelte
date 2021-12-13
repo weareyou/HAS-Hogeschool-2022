@@ -27,8 +27,8 @@
     if (Object.keys($errors).length) {
       e.preventDefault();
       const firstKey = Object.keys($errors)[0];
-      const errObj = $formState[firstKey].el;
-      errObj.focus();
+      const firstField = $formState[firstKey].el;
+      firstField.focus();
     }
 
     e.preventDefault();
