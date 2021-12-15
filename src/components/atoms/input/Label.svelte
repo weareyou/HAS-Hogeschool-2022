@@ -12,10 +12,6 @@
   .c-label {
     display: block;
     width: 100%;
-    // padding: 0;
-    // margin-bottom: var(--space-tiny);
-    // color: $color-brand-primary-base;
-    // @include supple-font-size($milli);
     @include typography.font-size(vars.$milli);
   }
 

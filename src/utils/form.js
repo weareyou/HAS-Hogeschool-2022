@@ -1,7 +1,14 @@
 import { derived, writable } from 'svelte/store';
 
 const formState = writable({});
-
+/*
+const registerField = (name, el) => {
+  formState[name] = {
+    touched: false,
+    el,
+  };
+};
+*/
 const errors = derived(formState, ($formState) => {
   const errorMessages = {
     valueMissing: 'Dit is een vereist veld.',
@@ -18,7 +25,6 @@ const errors = derived(formState, ($formState) => {
 
   Object.keys($formState).forEach((key) => {
     // if not touched or input is valid, return early
-    // if (!$formState[key].touched || $formState[key].validity.valid) {
     if (!$formState[key].touched || $formState[key].validity.valid) {
       return;
     }

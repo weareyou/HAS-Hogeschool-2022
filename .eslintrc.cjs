@@ -1,6 +1,6 @@
 module.exports = {
   parserOptions: {
-    ecmaVersion: 2019,
+    ecmaVersion: 13,
     sourceType: 'module',
   },
   extends: ['airbnb-base'],
@@ -20,9 +20,10 @@ module.exports = {
     },
   ],
   env: {
+    // es2021: true,
     es6: true,
     browser: true,
-    // node: true,
+    node: true,
   },
   settings: {
     'svelte3/ignore-styles': () => true,

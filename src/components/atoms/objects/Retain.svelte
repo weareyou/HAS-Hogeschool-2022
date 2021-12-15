@@ -1,5 +1,6 @@
 <script>
   export let size = 'wall';
+  export let noPadding = false;
 </script>
 
 <style lang="scss">
@@ -12,6 +13,7 @@
   class:o-retain--lap={size === 'lap'}
   class:o-retain--desk={size === 'desk'}
   class:o-retain--wall={size === 'wall'}
+  class:o-retain--no-padding={noPadding}
 >
   <slot />
 </div>

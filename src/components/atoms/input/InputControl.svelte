@@ -14,8 +14,8 @@
   let state;
   let el;
 
-  formState.subscribe((value) => {
-    state = value;
+  formState.subscribe((val) => {
+    state = val;
   });
 
   const handleChange = () => {
@@ -25,11 +25,12 @@
   };
 
   onMount(() => {
-    state[name] = {
-      touched: false,
-      el,
-    };
-    formState.set(state);
+    // registerField(name, el);
+    // state[name] = {
+    //   touched: false,
+    //   el,
+    // };
+    // formState.set(state);
   });
 
   onDestroy(() => {

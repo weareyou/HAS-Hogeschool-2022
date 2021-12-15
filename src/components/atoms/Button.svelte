@@ -5,7 +5,7 @@
   export let icon = null;
   export let hideLabel = false;
   // export let modifier = '';
-  // export let isActive = false;
+  export let isActive = false;
   export let onClick = null;
 
   let className = '';
@@ -61,6 +61,7 @@
   /*  Modifier
       ========================================================================= */
 
+  /*
   .c-button--transparent {
     box-shadow: none;
     background-color: var(--transparent-green);
@@ -71,15 +72,17 @@
       box-shadow: 0 0 0 1px var(--color-black);
     }
   }
+   */
 </style>
 
-<!--  aria-current={isActive ? 'true' : null}-->
+<!--  -->
 
 <button
   class="c-button  {className}"
   {href}
   on:click={onClick}
   {type}
+  aria-current={isActive ? 'true' : null}
 >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">

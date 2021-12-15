@@ -4,6 +4,14 @@
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
 
+    if (data.error) {
+      return {
+        props: {
+          navItems: [],
+        },
+      };
+    }
+
     return {
       props: {
         navItems: data.fields.links,
