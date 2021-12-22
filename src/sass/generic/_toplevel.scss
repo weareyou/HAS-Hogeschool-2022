@@ -22,6 +22,7 @@ html {
 
   // --font-family-secondary: 'Insignia', sans-serif;
   --font-weight-bold: 700;
+  --font-size-milli: #{vars.$milli};
 
   // animations
   --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);

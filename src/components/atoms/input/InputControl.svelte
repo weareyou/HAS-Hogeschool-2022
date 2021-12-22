@@ -39,6 +39,23 @@
   });
 </script>
 
+<style lang="scss">
+  @use 'src/sass/vars';
+
+  .c-input-control {
+    display: flex;
+    align-items: normal;
+    gap: var(--space-tiny);
+  }
+
+  .c-input-control__input {
+    inline-size: 1rem;
+    block-size: 1rem;
+    accent-color: var(--color-error);
+    margin-block-start: calc(var(--space-tiny) / 2);
+  }
+</style>
+
 <label class="c-input-control" for="{name}_{value}">
   <input
     {autocomplete}

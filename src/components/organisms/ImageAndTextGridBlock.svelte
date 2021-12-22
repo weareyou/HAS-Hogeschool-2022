@@ -8,12 +8,13 @@
 
   export let text = '';
   export let image = {};
+  export let inverted = false;
 </script>
 
 <section>
   <Layer>
     <Retain>
-      <Layout gap="base">
+      <Layout gap="base" isReversed={inverted}>
         <Cell lap="6">
           <Text markdown="{text}" />
         </Cell>

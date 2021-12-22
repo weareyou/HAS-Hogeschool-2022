@@ -30,8 +30,8 @@
           {type}
           {name}
           {required}
-          label="{option.label}"
-          value="{option.value}"
+          label="{option}"
+          value="{option}"
         />
       </Cell>
     {/each}

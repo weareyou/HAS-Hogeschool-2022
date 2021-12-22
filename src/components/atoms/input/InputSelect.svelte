@@ -74,9 +74,9 @@
   >
     {#each options as option}
       <option
-        value="{option.value}"
+        value="{option}"
       >
-        {option.label}
+        {option}
       </option>
     {/each}
   </select>
