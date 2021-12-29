@@ -1,26 +1,8 @@
 import { derived, writable } from 'svelte/store';
 
 const formState = writable({});
-/*
-const registerField = (name, el) => {
-  formState[name] = {
-    touched: false,
-    el,
-  };
-};
-*/
-const errors = derived(formState, ($formState) => {
-  const errorMessages = {
-    valueMissing: 'Dit is een vereist veld.',
-    typeMismatch: 'Dit is geen geldige invoer.',
-    patternMismatch: 'Dit is geen geldige invoer.',
-    // rangeOverflow: 'Deze waarde ligt te hoog.',
-    // rangeUnderflow: 'Deze waarde ligt te laag.',
-    // invalidDate: ' Dit is geen geldige datum.',
-    // outOfRangeDateHistory: 'De datum ligt te ver in het verleden.',
-    // outOfRangeDateFuture: 'De datum ligt te ver in de toekomst.',
-  };
 
+const errors = derived(formState, ($formState) => {
   const err = {};
 
   Object.keys($formState).forEach((key) => {
@@ -29,17 +11,76 @@ const errors = derived(formState, ($formState) => {
       return;
     }
     if ($formState[key].validity.valueMissing) {
-      err[key] = errorMessages.valueMissing; // 'Dit is een vereist veld.';
+      err[key] = 'valueMissing';
     }
     if ($formState[key].validity.typeMismatch) {
-      err[key] = errorMessages.typeMismatch; // 'Dit is geen geldige invoer.';
+      err[key] = 'typeMismatch';
     }
     if ($formState[key].validity.patternMismatch) {
-      err[key] = errorMessages.patternMismatch; // 'Dit is geen geldige invoer.';
+      err[key] = 'patternMismatch';
     }
   });
 
   return err;
 });
 
-export { formState, errors };
+// subscribe to formState here
+let $formState;
+formState.subscribe((value) => {
+  $formState = value;
+});
+
+// subscribe to errors here
+let $errors;
+errors.subscribe((value) => {
+  $errors = value;
+});
+
+const handleSubmit = (e) => {
+  Object.keys($formState).forEach((key) => {
+    const newField = $formState[key];
+    newField.touched = true;
+    newField.validity = $formState[key].el.validity;
+    $formState[key] = newField;
+  });
+
+  formState.set($formState);
+
+  if (Object.keys($errors).length) {
+    e.preventDefault();
+    const firstKey = Object.keys($errors)[0];
+    const firstField = $formState[firstKey].el;
+    firstField.focus();
+  }
+
+  e.preventDefault();
+};
+
+const register = (el) => {
+  if (!Object.keys(el).length) {
+    return false;
+  }
+
+  $formState[el.name] = {
+    touched: false,
+    el,
+  };
+
+  el.addEventListener('change', () => {
+    $formState[el.name].touched = true;
+    $formState[el.name].validity = el.validity;
+    formState.set($formState);
+  });
+
+  return {
+    destroy() {
+      // todo: check cleanup formstate
+      delete $formState[el.name];
+      formState.set($formState);
+    },
+  };
+};
+
+export {
+  formState, errors, handleSubmit, register,
+};

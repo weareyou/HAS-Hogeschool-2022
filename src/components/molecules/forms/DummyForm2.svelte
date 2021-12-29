@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { errors, formState } from '../../../utils/form';
+  import { handleSubmit } from '../../../utils/form';
   import Flow from '../../atoms/objects/Flow.svelte';
   import FormFieldText from '../form-fields/FormFieldText.svelte';
   import FormFieldSubmit from '../form-fields/FormFieldSubmit.svelte';
@@ -12,27 +12,6 @@
   onMount(() => {
     novalidate = 'novalidate';
   });
-
-  const handleSubmit = (e) => {
-    const newState = {};
-    Object.keys($formState).forEach((key) => {
-      const newField = $formState[key];
-      newField.touched = true;
-      newField.validity = $formState[key].el.validity;
-      newState[key] = newField;
-    });
-
-    formState.set(newState);
-
-    if (Object.keys($errors).length) {
-      e.preventDefault();
-      const firstKey = Object.keys($errors)[0];
-      const firstField = $formState[firstKey].el;
-      firstField.focus();
-    }
-
-    e.preventDefault();
-  };
 </script>
 
 <form action="" method="post" {novalidate} on:submit={handleSubmit}>
@@ -40,16 +19,7 @@
     <FormFieldControlset
       label="Aanhef"
       name="salutation"
-      options="{[
-    {
-      value: 'm',
-      label: 'Dhr.',
-    },
-    {
-      value: 'v',
-      label: 'Mevr.',
-    },
-    ]}"
+      options="{['Dhr.', 'Mevr.']}"
       required
       type="radio"
     />
@@ -75,24 +45,7 @@
     <FormFieldSelect
       label="Select"
       name="select"
-      options={[
-       {
-         value: '',
-         label: 'Choose...',
-       },
-       {
-         value: 'blue',
-         label: 'Blue',
-       },
-       {
-         value: 'red',
-         label: 'Red',
-       },
-       {
-         value: 'green',
-         label: 'Green',
-       },
-       ]}
+      options={['Blue', 'Red', 'Green']}
       required
     />
     <FormFieldTextarea

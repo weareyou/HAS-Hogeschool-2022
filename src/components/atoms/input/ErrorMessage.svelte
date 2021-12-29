@@ -2,6 +2,7 @@
   import { errors } from '../../../utils/form';
 
   export let name = '';
+  export let errorMessages = {};
 </script>
 
 <style lang="scss">
@@ -19,6 +20,6 @@
     id={`error_${name}`}
     class="c-error-message"
   >
-    {$errors[name]}
+    {errorMessages[$errors[name]]}
   </p>
 {/if}

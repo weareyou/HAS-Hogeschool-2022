@@ -23,19 +23,16 @@
 </script>
 
 <script>
+  import Meta from './_templates/$Meta.svelte';
   import ModularPageTemplate from './_templates/$ModularPageTemplate.svelte';
 
   export let data;
 </script>
 
-
-<svelte:head>
-  <title>{data.fields.pageTitle || data.system.name}</title>
-  <meta content="{data.fields.pageDescription}" name="description" />
-</svelte:head>
+<Meta {...data} />
 
 {#if data.system.contentType === 'modularPage'}
   <ModularPageTemplate modules={data.fields.grid} />
 {:else}
-  <p>Error: no templates defined for contentType <code>{data.system.contentType}</code>.</p>
+  <p>Error: no template defined for contentType <code>{data.system.contentType}</code>.</p>
 {/if}

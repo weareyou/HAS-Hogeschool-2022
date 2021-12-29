@@ -9,6 +9,7 @@
   export let required = false;
   export let autocomplete = '';
   export let options = [];
+  export let errorMessages = {};
 </script>
 
 <div>
@@ -25,5 +26,8 @@
     {required}
   />
 
-  <ErrorMessage {name} />
+  <ErrorMessage
+    {errorMessages}
+    {name}
+  />
 </div>

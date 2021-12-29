@@ -1,4 +1,7 @@
 <script>
+  import './_svg/icon-chevron-down.svg';
+
+  /*
   export let icon = '';
   let svg = '';
 
@@ -6,12 +9,20 @@
     .then((Icon) => {
       svg = Icon.default;
     });
+    */
 </script>
 
-<style>
-  :global(svg) {
-    display: block;
+<style lang="scss">
+  div {
+    :global(svg) {
+      display: block;
+      inline-size: 1.5rem;
+      block-size: 1.5rem;
+    }
   }
 </style>
 
-{@html svg}
+<div>
+  icon
+  <!--{@html svg}-->
+</div>

@@ -26,11 +26,11 @@
 
   onMount(() => {
     // registerField(name, el);
-    // state[name] = {
-    //   touched: false,
-    //   el,
-    // };
-    // formState.set(state);
+    state[name] = {
+      touched: false,
+      el,
+    };
+    formState.set(state);
   });
 
   onDestroy(() => {

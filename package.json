@@ -1,7 +1,7 @@
 {
   "name": "werken-bij-ggd-fryslan",
   "version": "1.0.0",
-  "description": "",
+  "description": "Using SvelteKit with Umbraco as a headless backend.",
   "type": "module",
   "scripts": {
     "dev": "netlify dev",
@@ -26,6 +26,12 @@
     "url": "https://jira.hosted-tools.com/projects/VRFRYSLAN_WBGGDF/issues"
   },
   "homepage": "https://werken-bij-ggd-fryslan.netlify.app/",
+  "browserslist": [
+    "> 0.5% in NL",
+    "last 2 versions",
+    "Firefox ESR",
+    "not dead"
+  ],
   "devDependencies": {
     "@netlify/functions": "^0.10.0",
     "@supple-kit/stylelint-config-supple": "^4.0.0",
@@ -39,8 +45,9 @@
     "postcss-html": "^1.2.0",
     "postcss-preset-env": "^7.0.0",
     "sass": "^1.43.4",
-    "stylelint": "^14.0.1",
+    "stylelint": "^14.2.0",
     "stylelint-config-html": "^1.0.0",
+    "stylelint-use-logical-spec": "^3.2.2",
     "svelte-preprocess": "^4.8.0"
   },
   "dependencies": {

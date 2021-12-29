@@ -32,12 +32,30 @@ Run `npm run build` to prerender all pages to static HTML to the `/build` folder
 
 ## How does it work?
 
-SvelteKit is a meta framework. It means it is a framework that creates a full-blown website. SvelteKit makes use of
-Svelte: a front-end framework for creating reusable components.
+SvelteKit is a meta framework. It means it is a framework that creates a full-blown website.
+SvelteKit makes use of Svelte: a front-end framework for creating reusable components.
 
 ### Routing
 
-The [/src/routes/[...rest].svelte](/src/routes/[...rest].svelte) file serves as a catch-all entry point for all urls (
+The [/src/routes/[...rest].svelte](/src/routes/[...rest].svelte) file serves as a catch-all entry
+point for all urls (
 the [index.svelte](src/routes/index.svelte) is only there to catch the homepage).
 
 An content API is called with the current url as a parameter. It returns the content for that page.
+
+### Pages
+
+Pages are made up of metadata and page content.
+In [/src/routes/[...rest].svelte](/src/routes/[...rest].svelte), page metadata is passed into
+the [/src/routes/templates/$Meta.svelte](/src/routes/templates/$Meta.svelte) component.
+
+A field in the API determines what kind of template should be rendered. It is checked
+in `[...rest].svelte`. For now, this is just one: a modular page.
+
+### Modular pages
+
+Modular pages are pages where a content editor can choose any amount of predefined 'building blocks'
+to build up a page. The content API provides an array of used blocks.
+In [/src/routes/templates/$ModularPageTemplate.svelte](/src/routes/templates/$ModularPageTemplate.svelte)
+a loop runs through the array, checks if we have a matching component, and then renders it with the
+content passed in.

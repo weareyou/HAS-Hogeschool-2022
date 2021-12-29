@@ -1,0 +1,52 @@
+<script>
+  /*
+  export let author = null;
+  export let site;
+  export let path = [];
+  export let title;
+  export let description;
+
+  const {
+    siteName,
+    twitterHandle,
+    domain,
+  } = site;
+
+  $: itemListElements = path.map((segment, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@id': `${domain}${segment.uri !== 'home' ? segment.uri : ''}`,
+      name: segment.title,
+    },
+  }));
+
+  $: schema = [{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: itemListElements,
+  }, {
+    '@context': 'http://schema.org',
+    '@type': 'WebSite',
+    url: domain,
+    name: siteName,
+  }];
+   */
+  export let system;
+  export let fields;
+</script>
+
+<svelte:head>
+  <title>{fields.pageTitle || system.name}</title>
+  <meta content="{fields.pageDescription}" name="description" />
+  <!--
+   <title>{title} • {siteName}</title>
+   {#if author}
+     <meta name="author" content={`${author.firstName} ${author.lastName}`}>
+   {/if}
+   <meta name="description" content={description}>
+   <meta name="twitter:site" content={twitterHandle}>
+
+   {@html '<script type="application/ld+json">' + JSON.stringify(schema) + '</script>'}
+   -->
+</svelte:head>

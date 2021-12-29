@@ -18,6 +18,10 @@
           "global"
         ]
       }
-    ]
-  }
+    ],
+    "liberty/use-logical-spec": true
+  },
+  "plugins": [
+    "stylelint-use-logical-spec"
+  ]
 }

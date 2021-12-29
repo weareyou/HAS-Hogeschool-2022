@@ -7,6 +7,7 @@
   export let label = '';
   export let hint = '';
   export let required = false;
+  export let errorMessages = {};
 </script>
 
 <div>
@@ -21,5 +22,8 @@
     {required}
   />
 
-  <ErrorMessage {name} />
+  <ErrorMessage
+    {errorMessages}
+    {name}
+  />
 </div>

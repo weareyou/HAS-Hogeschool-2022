@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from 'svelte';
+  import { formState, handleSubmit } from '../../utils/form';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Flow from '../atoms/objects/Flow.svelte';
@@ -10,11 +12,18 @@
 
   export let formFields = [];
   export let submitLabel = '';
+
+  let novalidate = null;
+  onMount(() => {
+    novalidate = 'novalidate';
+  });
+
+  console.log($formState);
 </script>
 
 <Layer>
   <Retain size="lap">
-    <form action="" method="post">
+    <form action="" method="post" {novalidate} on:submit={handleSubmit}>
       <Flow>
         {#each formFields as formField}
           {#if formField.type.name === 'Short answer'}
@@ -25,32 +34,40 @@
               required={formField.required}
               type={formField.settings.FieldType}
               autocomplete={formField.autocomplete}
+              errorMessages={formField.errorMessages}
             />
           {:else if formField.type.name === 'Long answer'}
             <FormFieldTextarea
-              label={formField.name}
               name={formField.alias}
+              label={formField.name}
+              hint={formField.hint}
               required={formField.required}
+              errorMessages={formField.errorMessages}
             />
           {:else if formField.type.name === 'Dropdown'}
             <FormFieldSelect
-              label={formField.name}
               name={formField.alias}
-              options={formField.options}
+              label={formField.name}
+              hint={formField.hint}
               required={formField.required}
+              options={formField.options}
+              errorMessages={formField.errorMessages}
             />
           {:else if formField.type.name === 'Multiple choice'}
             <FormFieldControlset
-              label={formField.name}
               name={formField.alias}
-              options={formField.options}
+              label={formField.name}
+              hint={formField.hint}
               required={formField.required}
               type="checkbox"
+              options={formField.options}
+              errorMessages={formField.errorMessages}
             />
           {:else if formField.type.name === 'Single choice'}
             <FormFieldControlset
               label={formField.name}
               name={formField.alias}
+              hint={formField.hint}
               options={formField.options}
               required={formField.required}
               type="radio"

@@ -1,7 +1,5 @@
 <script>
   export let size = 'large';
-  export let collapseTop = false;
-  export let collapseBottom = false;
 </script>
 
 <style lang="scss">
@@ -26,7 +24,7 @@
     padding-block: var(--space-small);
   }
 
-  .o-layer--medium {
+  .o-layer--base {
     padding-block: var(--space-base);
   }
 
@@ -51,29 +49,15 @@
       padding-block: var(--space-huge);
     }
   }
-
-
-  /*  Overrides
-      ========================================================================= */
-
-  .o-layer--collapse-top {
-    padding-block-start: 0;
-  }
-
-  .o-layer--collapse-bottom {
-    padding-block-end: 0;
-  }
 </style>
 
 <div
   class="o-layer"
-  class:o-layer--collapse-bottom={collapseBottom}
-  class:o-layer--collapse-top={collapseTop}
-  class:o-layer--huge={size === 'huge'}
+  class:o-layer--base={size === 'base'}
   class:o-layer--large={size === 'large'}
-  class:o-layer--medium={size === 'medium'}
   class:o-layer--small={size === 'small'}
   class:o-layer--tiny={size === 'tiny'}
+  class:o-layer--huge={size === 'huge'}
 >
   <slot></slot>
 </div>

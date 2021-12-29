@@ -10,6 +10,7 @@
   export let type = '';
   export let required = false;
   export let options = [];
+  export let errorMessages = {};
 </script>
 
 <fieldset>
@@ -37,5 +38,5 @@
     {/each}
   </Layout>
 
-  <ErrorMessage {name} />
+  <ErrorMessage {errorMessages} {name} />
 </fieldset>
