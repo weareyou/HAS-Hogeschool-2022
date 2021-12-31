@@ -28,7 +28,7 @@
   import Footer from '../components/organisms/Footer.svelte';
   import Button from '../components/atoms/Button.svelte';
 
-  $: segments = $page.path.split('/');
+  $: segments = $page.url.pathname.split('/');
   export let navItems;
 </script>
 
