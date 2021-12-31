@@ -78,7 +78,8 @@
               label={formField.name}
               name={formField.alias}
               required={formField.required}
-              type="date"
+              type="text"
+              pattern="{'[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}'}"
             />
           {:else if formField.type.name === 'Data Consent'}
             <FormFieldControlset

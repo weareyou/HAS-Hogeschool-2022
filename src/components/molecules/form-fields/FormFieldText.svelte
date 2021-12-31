@@ -7,8 +7,9 @@
   export let label = '';
   export let hint = '';
   export let required = false;
-  export let autocomplete = '';
-  export let type = 'text';
+  export let autocomplete = null;
+  export let type = null;
+  export let pattern = null;
   export let errorMessages = {};
 </script>
 
@@ -25,6 +26,7 @@
     {name}
     {required}
     {type}
+    {pattern}
   />
 
   <ErrorMessage
