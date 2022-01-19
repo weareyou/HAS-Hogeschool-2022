@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { formState, handleSubmit } from '../../utils/form';
+  import { handleSubmit } from '../../utils/form';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Flow from '../atoms/objects/Flow.svelte';
@@ -17,8 +17,6 @@
   onMount(() => {
     novalidate = 'novalidate';
   });
-
-  console.log($formState);
 </script>
 
 <Layer>

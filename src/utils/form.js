@@ -5,18 +5,18 @@ const formState = writable({});
 const errors = derived(formState, ($formState) => {
   const err = {};
 
-  Object.keys($formState).forEach((key) => {
+  Object.entries($formState).forEach(([key, value]) => {
     // if not touched or input is valid, return early
-    if (!$formState[key].touched || $formState[key].validity.valid) {
+    if (!value.touched || value.validity.valid) {
       return;
     }
-    if ($formState[key].validity.valueMissing) {
+    if (value.validity.valueMissing) {
       err[key] = 'valueMissing';
     }
-    if ($formState[key].validity.typeMismatch) {
+    if (value.validity.typeMismatch) {
       err[key] = 'typeMismatch';
     }
-    if ($formState[key].validity.patternMismatch) {
+    if (value.validity.patternMismatch) {
       err[key] = 'patternMismatch';
     }
   });
@@ -37,22 +37,23 @@ errors.subscribe((value) => {
 });
 
 const handleSubmit = (e) => {
-  Object.keys($formState).forEach((key) => {
-    const newField = $formState[key];
+  // loop over fields
+  Object.entries($formState).forEach(([key, value]) => {
+    const newField = value;
     newField.touched = true;
-    newField.validity = $formState[key].el.validity;
+    newField.validity = value.el.validity;
     $formState[key] = newField;
   });
-
+  // set to state
   formState.set($formState);
-
+  // check for errors
   if (Object.keys($errors).length) {
     e.preventDefault();
     const firstKey = Object.keys($errors)[0];
     const firstField = $formState[firstKey].el;
     firstField.focus();
   }
-
+  // for testing purposes, might do a real POST
   e.preventDefault();
 };
 

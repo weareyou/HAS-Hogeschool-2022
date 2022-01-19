@@ -1,7 +1,6 @@
 <script>
   import Label from '../../atoms/input/Label.svelte';
   import Layout from '../../atoms/objects/Layout.svelte';
-  import Cell from '../../atoms/objects/Cell.svelte';
   import InputControl from '../../atoms/input/InputControl.svelte';
   import ErrorMessage from '../../atoms/input/ErrorMessage.svelte';
 
@@ -20,13 +19,9 @@
   />
   <input {name} type="hidden" value="">
 
-  <Layout
-    element="ul"
-    fit
-    gap="base"
-  >
+  <Layout class="o-layout  o-layout--fit  o-layout--gap-base" role="list">
     {#each options as option}
-      <Cell element="li">
+      <li>
         <InputControl
           {type}
           {name}
@@ -34,7 +29,7 @@
           label="{option}"
           value="{option}"
         />
-      </Cell>
+      </li>
     {/each}
   </Layout>
 

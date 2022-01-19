@@ -11,12 +11,15 @@
 
 <Layer>
   <Retain>
-    <Layout gap="base">
+    <Layout class="o-layout  o-layout--justify  o-layout--fit  o-layout--gap-base">
       <Cell fill>
         <p>
-          <mark>Logo</mark>
+          <a href="/">
+            <mark>Logo</mark>
+          </a>
         </p>
       </Cell>
+
       <Cell fit>
         <PrimaryNav activeSegment={segments[1]} items={items} />
       </Cell>
