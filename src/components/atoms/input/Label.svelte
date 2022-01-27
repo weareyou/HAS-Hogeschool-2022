@@ -1,6 +1,7 @@
 <script>
   export let label = '';
   export let hint = '';
+  export let isLegend = false;
   export let forValue = '';
   export { forValue as for };
 </script>
@@ -11,7 +12,7 @@
 
   .c-label {
     display: block;
-    width: 100%;
+    inline-size: 100%;
     @include typography.font-size(vars.$milli);
   }
 
@@ -34,14 +35,27 @@
   }
 </style>
 
-<label
-  class="c-label"
-  for={forValue}
->
-  <span class="c-label__label">
-    {label}
-  </span>
-  {#if hint}
-    <span class="c-label__hint">{hint}</span>
-  {/if}
-</label>
+{#if isLegend}
+  <legend
+    class="c-label"
+  >
+    <span class="c-label__label">
+      {label}
+    </span>
+    {#if hint}
+      <span class="c-label__hint">{hint}</span>
+    {/if}
+  </legend>
+{:else}
+  <label
+    class="c-label"
+    for={forValue}
+  >
+    <span class="c-label__label">
+      {label}
+    </span>
+    {#if hint}
+      <span class="c-label__hint">{hint}</span>
+    {/if}
+  </label>
+{/if}

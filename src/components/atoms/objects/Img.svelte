@@ -4,11 +4,14 @@
   export let lazy = true;
   export let width = 0;
   export let height = 0;
-  export let focalPoint = {};
+  export let focalPoint = null;
   export let sizes = []; // [300, 600, 900]
-  const prefix = '/img/';
+  let path = '/img';
 
-  const path = `${prefix}center:${focalPoint.left},${focalPoint.top}`;
+  if (focalPoint) {
+    path = `/${path}center:${focalPoint.left},${focalPoint.top}`;
+  }
+
   let srcset = [];
   if (sizes) {
     srcset = sizes.map((size) => `${path}/width:${size}::${url} ${size}w`);
