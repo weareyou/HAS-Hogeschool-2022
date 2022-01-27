@@ -14,6 +14,7 @@ const config = {
 
     // hydrate the <div id="app"> element in src/app.html
     target: '#app',
+    trailingSlash: 'always',
   },
 };
 

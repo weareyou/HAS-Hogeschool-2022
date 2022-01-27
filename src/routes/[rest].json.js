@@ -12,6 +12,7 @@ export async function get(req) {
       error: 'Content api not available',
       errorCode: '502',
       call: api,
+      thing: url,
     };
   }
 

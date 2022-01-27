@@ -14,7 +14,7 @@
 <section>
   <Layer>
     <Retain>
-      <Layout class="o-layout  o-layout--gap-base  {inverted ? 'o-layout--reverse' : ''}">
+      <Layout gap="base" reverse={inverted}>
         <Cell lap="6">
           <Text markdown="{text}" />
         </Cell>

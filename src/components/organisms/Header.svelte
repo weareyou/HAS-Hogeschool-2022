@@ -11,8 +11,8 @@
 
 <Layer>
   <Retain>
-    <Layout class="o-layout  o-layout--justify  o-layout--fit  o-layout--gap-base">
-      <Cell fill>
+    <Layout fit gap="base" justify>
+      <Cell>
         <p>
           <a href="/">
             <mark>Logo</mark>
@@ -20,7 +20,7 @@
         </p>
       </Cell>
 
-      <Cell fit>
+      <Cell>
         <PrimaryNav activeSegment={segments[1]} items={items} />
       </Cell>
     </Layout>
