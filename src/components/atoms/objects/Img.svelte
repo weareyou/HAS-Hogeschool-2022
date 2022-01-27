@@ -9,7 +9,7 @@
   let path = '/img';
 
   if (focalPoint) {
-    path = `/${path}center:${focalPoint.left},${focalPoint.top}`;
+    path = `${path}/center:${focalPoint.left},${focalPoint.top}`;
   }
 
   let srcset = [];
