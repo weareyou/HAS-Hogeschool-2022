@@ -21,9 +21,10 @@
 <img
   alt={name}
   class="lazyload"
-  data-srcset={!lazy ? `${srcset.join(',')}` : null}
-  srcset={lazy ? `${srcset.join(',')}` : null}
+  data-srcset={lazy ? `${srcset.join(',')}` : null}
+  src=""
   width="{width}"
   height="{height}"
   sizes="auto"
+  srcset={!lazy ? `${srcset.join(',')}` : null}
 />
