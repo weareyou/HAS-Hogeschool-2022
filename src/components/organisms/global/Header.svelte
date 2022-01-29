@@ -1,9 +1,9 @@
 <script>
-  import PrimaryNav from '../molecules/PrimaryNav.svelte';
-  import Layout from '../atoms/objects/Layout.svelte';
-  import Cell from '../atoms/objects/Cell.svelte';
-  import Layer from '../atoms/objects/Layer.svelte';
-  import Retain from '../atoms/objects/Retain.svelte';
+  import PrimaryNav from '../../molecules/PrimaryNav.svelte';
+  import Layout from '../../atoms/objects/Layout.svelte';
+  import Cell from '../../atoms/objects/Cell.svelte';
+  import Layer from '../../atoms/objects/Layer.svelte';
+  import Retain from '../../atoms/objects/Retain.svelte';
 
   export let segments = [];
   export let items = [];

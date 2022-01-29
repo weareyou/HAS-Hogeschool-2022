@@ -24,8 +24,8 @@
   import 'lazysizes';
   // eslint-disable-next-line
   import { page } from '$app/stores';
-  import Header from '../components/organisms/Header.svelte';
-  import Footer from '../components/organisms/Footer.svelte';
+  import Header from '../components/organisms/global/Header.svelte';
+  import Footer from '../components/organisms/global/Footer.svelte';
   import Button from '../components/atoms/Button.svelte';
 
   $: segments = $page.url.pathname.split('/');
