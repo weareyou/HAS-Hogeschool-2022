@@ -59,3 +59,9 @@ to build up a page. The content API provides an array of used blocks.
 In [/src/routes/templates/$ModularPageTemplate.svelte](/src/routes/templates/$ModularPageTemplate.svelte)
 a loop runs through the array, checks if we have a matching component, and then renders it with the
 content passed in.
+
+### CSP
+
+Content Security Policy (CSP) headers are configured in [svelte.config.js](svelte.config.js)
+and [netlify.toml](netlify.toml). They should be the same, to inform SvelteKit what CSP is actually
+configured when running on Netlify.

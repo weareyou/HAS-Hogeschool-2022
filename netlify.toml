@@ -12,14 +12,16 @@ command = "npm run build"
 for = "/*"
 
 [headers.values]
-Content-Security-Policy = "default-src 'self';  style-src 'self' 'unsafe-inline';  script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;"
-X-Frame-Options = "SAMEORIGIN"
+#Content-Security-Policy = "default-src 'self';  style-src 'self' 'unsafe-inline';  script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;"
+#Content-Security-Policy = "default-src 'self'; connect-src *"
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "no-referrer"
 Permissions-Policy = "geolocation=(self)"
 
-[context.production]
-Content-Security-Policy = "default-src 'self';  style-src 'self' 'unsafe-inline';  script-src 'self' 'unsafe-inline' 'unsafe-eval'; ws"
+#[context.production]
+#Content-Security-Policy = "default-src 'self';"
 
 
 [[redirects]]
