@@ -36,7 +36,8 @@ errors.subscribe((value) => {
   $errors = value;
 });
 
-const handleSubmit = (e) => {
+const handleSubmit = async (e) => {
+  e.preventDefault();
   // loop over fields
   Object.entries($formState).forEach(([key, value]) => {
     const newField = value;
@@ -53,8 +54,17 @@ const handleSubmit = (e) => {
     const firstField = $formState[firstKey].el;
     firstField.focus();
   }
-  // for testing purposes, might do a real POST
-  e.preventDefault();
+
+  try {
+    const req = await fetch('/api/submitForm', {
+      method: 'post',
+      body: $formState,
+    });
+    // const res = await req.json();
+    return await req.json();
+  } catch (err) {
+    return 'Error';
+  }
 };
 
 const register = (el) => {

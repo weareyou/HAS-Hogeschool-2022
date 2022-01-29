@@ -1,5 +1,5 @@
 const fetch = require('node-fetch').default;
-const https = require('https');
+// const https = require('https');
 
 exports.handler = async (event, context) => {
   // 1. Parse the form
@@ -19,10 +19,11 @@ exports.handler = async (event, context) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        // auth headers?
       },
-      // auth headers?
       body,
     });
+    return await req.json();
   } catch (e) {
     return {
       statusCode: 503,
