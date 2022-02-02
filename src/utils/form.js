@@ -43,6 +43,7 @@ const handleSubmit = async (e) => {
     const newField = value;
     newField.touched = true;
     newField.validity = value.el.validity;
+    newField.value = value.el.value;
     $formState[key] = newField;
   });
   // set to state
@@ -56,14 +57,21 @@ const handleSubmit = async (e) => {
   }
 
   try {
-    const req = await fetch('/api/submitForm', {
+    const formData = new FormData(e.target);
+    const formId = 'f5d42b76-cde6-4f4b-8b4d-3cb86da44552';
+    const url = `${import.meta.env.VITE_UMBRACO_API_URL}form/Submit?guid=${formId}`;
+    const req = await fetch(url, {
+      // const req = await fetch('/api/submitForm', {
       method: 'post',
-      body: $formState,
+      body: formData,
+      headers: {
+        'Content-Type': 'multipart/form-data;boundary=-----------------------------3585891659374855507449266492',
+        // 'Content-Type': 'multipart/form-data; boundary=-----------------------------58722240314917694791091360880',
+      },
     });
-    // const res = await req.json();
     return await req.json();
   } catch (err) {
-    return 'Error';
+    return `Error: ${err}`;
   }
 };
 

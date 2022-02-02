@@ -15,12 +15,13 @@ const config = {
     // hydrate the <div id="app"> element in src/app.html
     target: '#app',
     trailingSlash: 'never',
-    csp: {
-      directives: {
-        'default-src': ['self'],
-        'connect-src': ['*'],
-      },
-    },
+    // this doesn't work, because we're rendering statically
+    // csp: {
+    //   directives: {
+    //     'default-src': ['self'],
+    //     'connect-src': ['*'],
+    //   },
+    // },
   },
 };
 

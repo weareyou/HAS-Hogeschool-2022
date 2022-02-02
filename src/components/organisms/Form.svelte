@@ -17,6 +17,13 @@
   onMount(() => {
     novalidate = 'novalidate';
   });
+
+  const handleSubmit2 = (e) => {
+    const formData = new FormData(e.target);
+    // console.log(e);
+    // console.log(Object.entries(formData));
+    e.preventDefault();
+  };
 </script>
 
 <Layer>
