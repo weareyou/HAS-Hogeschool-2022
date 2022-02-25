@@ -50,23 +50,23 @@ const handleSubmit = async (e) => {
   formState.set($formState);
   // check for errors
   if (Object.keys($errors).length) {
-    e.preventDefault();
     const firstKey = Object.keys($errors)[0];
     const firstField = $formState[firstKey].el;
     firstField.focus();
+    return false;
   }
 
   try {
-    const formData = new FormData(e.target);
+    const formData = Object.entries($formState).map(([name, obj]) => ({
+      name,
+      value: obj.value,
+    }));
     const formId = 'f5d42b76-cde6-4f4b-8b4d-3cb86da44552';
-    const url = `${import.meta.env.VITE_UMBRACO_API_URL}form/Submit?guid=${formId}`;
-    const req = await fetch(url, {
-      // const req = await fetch('/api/submitForm', {
+    const req = await fetch('/api/submitForm', {
       method: 'post',
-      body: formData,
+      body: JSON.stringify(formData),
       headers: {
-        'Content-Type': 'multipart/form-data;boundary=-----------------------------3585891659374855507449266492',
-        // 'Content-Type': 'multipart/form-data; boundary=-----------------------------58722240314917694791091360880',
+        formId,
       },
     });
     return await req.json();

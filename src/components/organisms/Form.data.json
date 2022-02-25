@@ -1,0 +1,83 @@
+{
+  "value": {
+    "id": "f5d42b76-cde6-4f4b-8b4d-3cb86da44552",
+    "--name": "Contact form 2",
+    "messageOnSubmit": "Thank you",
+    "--invalidErrorMessage": "Please provide a valid value for {0}",
+    "--nextLabel": "Next",
+    "--prevLabel": "Prev",
+    "submitLabel": "Submit",
+    "--goToPageOnSubmit": 0,
+    "formFields": [
+      {
+        "fieldType": "short|long|dropdown|multi|single|date|consent",
+        "label": {
+          "label": "Je voornaam",
+          "hint": "Hoe mensen je noemen",
+          "for": "firstName"
+        },
+        "input": {
+          "name": "firstName",
+          "required": true,
+          "type": "text|email",
+          "autocomplete": "given-name"
+        },
+        "errorMessages": {
+          "typeMismatch": "Dit is geen geldige invoer",
+          "valueMissing": "Dit veld moet worden ingevuld",
+          "patternMismatch": "Dit is geen geldige invoer"
+        }
+      },
+      {
+        "--id": "27335b09-6073-4195-a6ad-2382659c528d",
+        "--alias": "name",
+        "--name": "Name",
+        "++fieldType": "short|long|dropdown|multi|single|date|consent",
+        "++type": "text|email|tel|url",
+        "++name": "name",
+        "++label": "Name",
+        "hint": "",
+        "placeholder": "",
+        "required": true,
+        "++autocomplete": "",
+        "--regEx": null,
+        "++pattern": "",
+        "--cssClass": null,
+        "--options": [],
+        "--values": null,
+        "--condition": {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "enabled": false,
+          "actionType": 0,
+          "logicType": 0,
+          "rules": []
+        },
+        "--containsSensitiveData": false,
+        "errorMessages": {
+          "typeMismatch": null,
+          "valueMissing": null,
+          "patternMismatch": "Komt niet overeen met patroon"
+        },
+        "--settings": {
+          "DefaultValue": "",
+          "Placeholder": "",
+          "ShowLabel": "",
+          "MaximumLength": "",
+          "FieldType": "",
+          "AutocompleteAttribute": ""
+        },
+        "--type": {
+          "name": "Short answer",
+          "description": "Renders an text input field, for short answers",
+          "dataType": "String",
+          "hideField": false,
+          "hideLabel": false
+        }
+      }
+    ]
+  },
+  "editor": {
+    "--name": "Form",
+    "alias": "umbraco_form_picker"
+  }
+}
