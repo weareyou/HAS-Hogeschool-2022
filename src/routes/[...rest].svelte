@@ -10,7 +10,7 @@
     if (data.error) {
       return {
         status: data.errorCode,
-        error: data.error,
+        error: data.errorMessage,
       };
     }
 
