@@ -25,9 +25,9 @@ export async function get(req) {
   }
 
   return {
-    body: JSON.stringify({
+    body: {
       ...data,
       call: url,
-    }),
+    },
   };
 }

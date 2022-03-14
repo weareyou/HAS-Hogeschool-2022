@@ -35,4 +35,5 @@ Permissions-Policy = "geolocation=(self)"
 #status = 200
 
 [functions]
+#directory = "functions"
 node_bundler = "esbuild"
