@@ -5,14 +5,14 @@
   }) {
     const path = params.rest || 'home';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
-    const data = await res.json();
-
-    if (data.error) {
-      return {
-        status: data.errorCode,
-        error: data.errorMessage,
-      };
-    }
+    // const data = await res.json();
+    //
+    // if (data.error) {
+    //   return {
+    //     status: data.errorCode,
+    //     error: data.errorMessage,
+    //   };
+    // }
 
     return {
       props: {
