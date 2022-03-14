@@ -7,6 +7,10 @@ export async function get(req) {
   const password = import.meta.env.VITE_UMBRACO_PASSWORD;
   let data;
 
+  const btoa = (text) => {
+    return Buffer.from(text, 'binary').toString('base64');
+  };
+
   try {
     const res = await fetch(api, {
       headers: {
