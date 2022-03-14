@@ -16,7 +16,7 @@ export async function get(req) {
     });
     data = await res.json();
   } catch (e) {
-    console.log(e);
+    console.log(e.toString());
     data = {
       error: 'Content api not available',
       errorCode: '502',
@@ -31,7 +31,6 @@ export async function get(req) {
       call: url,
       api,
       username,
-      password,
     },
   };
 }
