@@ -16,13 +16,13 @@ const config = {
     // adapter: adapter(),
     adapter: netlifyAdapter(),
 
-    trailingSlash: 'never',
-    csp: {
-      directives: {
-        'default-src': ['self'],
-        'connect-src': ['*'],
-      },
-    },
+    // trailingSlash: 'never',
+    // csp: {
+    //   directives: {
+    //     'default-src': ['self'],
+    //     'connect-src': ['*'],
+    //   },
+    // },
   },
 };
 

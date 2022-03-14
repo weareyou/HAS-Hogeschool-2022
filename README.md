@@ -63,5 +63,5 @@ content passed in.
 ### CSP
 
 Content Security Policy (CSP) headers are configured in [svelte.config.js](svelte.config.js)
-and [netlify.toml](netlify.toml). They should be the same, to inform SvelteKit what CSP is actually
-configured when running on Netlify.
+and [netlify.toml](___netlify.toml). They should be the same, to inform SvelteKit what CSP is
+actually configured when running on Netlify.

@@ -3,6 +3,12 @@
     params,
     fetch,
   }) {
+    return {
+      props: {
+        data: params,
+      },
+    };
+    /*
     const path = params.rest || 'home';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
@@ -19,6 +25,7 @@
         data,
       },
     };
+     */
   }
 </script>
 
@@ -28,7 +35,7 @@
 
   export let data;
 </script>
-
+<!--
 <Meta {...data} />
 
 {#if data.system.contentType === 'modularPage'}
@@ -36,3 +43,4 @@
 {:else}
   <p>Error: no template defined for contentType <code>{data.system.contentType}</code>.</p>
 {/if}
+-->
