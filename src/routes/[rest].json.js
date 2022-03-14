@@ -21,6 +21,7 @@ export async function get(req) {
       errorCode: '502',
       call: api,
       thing: url,
+      e,
     };
   }
 
