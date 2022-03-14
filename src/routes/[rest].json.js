@@ -20,6 +20,7 @@ export async function get(req) {
     data = {
       error: 'Content api not available',
       errorCode: '502',
+      errorE: e.toString(),
       // call: 'snot', // api,
       // thing: url,
     };
