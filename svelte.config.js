@@ -1,5 +1,5 @@
 import sveltePreprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-static';
+import netlifyAdapter from '@sveltejs/adapter-netlify';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -7,13 +7,14 @@ const config = {
     preserve: ['ld+json'],
   }),
   kit: {
-    prerender: {
-      default: true,
-    },
+    // prerender: {
+    //   default: true,
+    // },
     // By default, `npm run build` will create a standard Node app.
     // You can create optimized builds for different platforms by
     // specifying a different adapter
-    adapter: adapter(),
+    // adapter: adapter(),
+    adapter: netlifyAdapter(),
 
     trailingSlash: 'never',
     csp: {

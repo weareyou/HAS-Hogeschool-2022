@@ -24,15 +24,15 @@ Permissions-Policy = "geolocation=(self)"
 #Content-Security-Policy = "default-src 'self';"
 
 
-[[redirects]]
-from = "/img/*"
-to = "/.netlify/builders/img"
-status = 200
-
-[[redirects]]
-from = "api/submitForm"
-to = "/.netlify/functions/submitForm"
-status = 200
+#[[redirects]]
+#from = "/img/*"
+#to = "/.netlify/builders/img"
+#status = 200
+#
+#[[redirects]]
+#from = "api/submitForm"
+#to = "/.netlify/functions/submitForm"
+#status = 200
 
 [functions]
 node_bundler = "esbuild"
