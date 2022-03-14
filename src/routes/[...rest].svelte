@@ -5,26 +5,20 @@
   }) {
     const path = params.rest || 'home';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
-    // const data = await res.json();
-    //
-    // if (data.error) {
-    //   return {
-    //     status: data.errorCode,
-    //     error: data.errorMessage,
-    //   };
-    // }
+    const data = await res.json();
+
+    if (data.error) {
+      return {
+        status: data.errorCode,
+        error: data.errorMessage,
+      };
+    }
 
     return {
       props: {
-        data: params,
+        data,
       },
     };
-
-    // return {
-    //   props: {
-    //     data,
-    //   },
-    // };
   }
 </script>
 
@@ -35,8 +29,6 @@
   export let data;
 </script>
 
-{data.rest}
-<!--
 <Meta {...data} />
 
 {#if data.system.contentType === 'modularPage'}
@@ -44,4 +36,3 @@
 {:else}
   <p>Error: no template defined for contentType <code>{data.system.contentType}</code>.</p>
 {/if}
--->

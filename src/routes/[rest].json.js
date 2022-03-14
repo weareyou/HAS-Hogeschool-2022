@@ -20,22 +20,17 @@ export async function get(req) {
     });
     data = await res.json();
   } catch (e) {
-    console.log(e.toString());
     data = {
       error: 'Content api not available',
       errorCode: '502',
-      errorE: e.toString(),
-      // call: 'snot', // api,
-      // thing: url,
+      errorDetails: e.toString(),
     };
   }
 
   return {
     body: {
       ...data,
-      call: url,
       api,
-      username,
     },
   };
 }
