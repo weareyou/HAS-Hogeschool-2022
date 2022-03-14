@@ -3,12 +3,6 @@
     params,
     fetch,
   }) {
-    return {
-      props: {
-        data: params,
-      },
-    };
-    /*
     const path = params.rest || 'home';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
@@ -22,10 +16,15 @@
 
     return {
       props: {
-        data,
+        data: params,
       },
     };
-     */
+
+    // return {
+    //   props: {
+    //     data,
+    //   },
+    // };
   }
 </script>
 
