@@ -1,5 +1,5 @@
 <script context="module">
-  /* export async function load({ fetch }) {
+  export async function load({ fetch }) {
     const path = 'navigation/header-navigation';
     const res = await fetch(`/${encodeURIComponent(path)}.json`);
     const data = await res.json();
@@ -17,7 +17,7 @@
         navItems: data.fields.links,
       },
     };
-  } */
+  }
 </script>
 <script>
   import 'wicg-inert';
