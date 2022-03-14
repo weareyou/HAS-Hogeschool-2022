@@ -35,6 +35,8 @@
 
   export let data;
 </script>
+
+{data.rest}
 <!--
 <Meta {...data} />
 
