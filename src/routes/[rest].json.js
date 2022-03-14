@@ -20,9 +20,8 @@ export async function get(req) {
     data = {
       error: 'Content api not available',
       errorCode: '502',
-      call: api,
-      thing: url,
-      username,
+      // call: 'snot', // api,
+      // thing: url,
     };
   }
 
@@ -30,6 +29,7 @@ export async function get(req) {
     body: {
       ...data,
       call: url,
+      api,
     },
   };
 }
