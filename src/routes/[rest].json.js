@@ -30,6 +30,7 @@ export async function get(req) {
       ...data,
       call: url,
       api,
+      username,
     },
   };
 }
