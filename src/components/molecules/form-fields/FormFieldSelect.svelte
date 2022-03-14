@@ -5,13 +5,14 @@
 
   export let label;
   export let input;
+  export let options;
   export let errorMessages;
 </script>
 
 <div>
   <Label {...label} />
 
-  <InputSelect {...input} />
+  <InputSelect {...input} {options} />
 
   <ErrorMessage
     {errorMessages}

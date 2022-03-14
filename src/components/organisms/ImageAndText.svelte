@@ -8,6 +8,7 @@
 
   export let text = '';
   export let image = {};
+  export let caption = '';
   export let inverted = false;
 </script>
 
@@ -19,7 +20,10 @@
           <Text markdown="{text}" />
         </Cell>
         <Cell lap="6">
-          <Img {...image} sizes={[654, 1024, 1208]} />
+          <figure>
+            <Img {...image} sizes={[654, 1024, 1208]} />
+            <figcaption>{caption}</figcaption>
+          </figure>
         </Cell>
       </Layout>
     </Retain>

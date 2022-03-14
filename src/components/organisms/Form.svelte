@@ -8,6 +8,7 @@
   import FormFieldText from '../molecules/form-fields/FormFieldText.svelte';
   import FormFieldTextarea from '../molecules/form-fields/FormFieldTextarea.svelte';
   import FormFieldSelect from '../molecules/form-fields/FormFieldSelect.svelte';
+  import FormFieldControlset from '../molecules/form-fields/FormFieldControlset.svelte';
 
   export let formFields = [];
   export let submitLabel = '';
@@ -29,51 +30,27 @@
             <FormFieldTextarea {...formField} />
           {:else if formField.fieldType === 'Dropdown'}
             <FormFieldSelect {...formField} />
-            <!--<FormFieldSelect
-              name={formField.alias}
-              label={formField.name}
-              hint={formField.hint}
-              required={formField.required}
-              options={formField.options}
-              errorMessages={formField.errorMessages}
-            />-->
-            <!--  {:else if formField.type.name === 'Multiple choice'}
-               <FormFieldControlset
-                 name={formField.alias}
-                 label={formField.name}
-                 hint={formField.hint}
-                 required={formField.required}
-                 type="checkbox"
-                 options={formField.options}
-                 errorMessages={formField.errorMessages}
-               />
-             {:else if formField.type.name === 'Single choice'}
-               <FormFieldControlset
-                 label={formField.name}
-                 name={formField.alias}
-                 hint={formField.hint}
-                 options={formField.options}
-                 required={formField.required}
-                 type="radio"
-               />
-             {:else if formField.type.name === 'Date'}
-               <FormFieldText
-                 autocomplete={formField.AutocompleteAttribute}
-                 label={formField.name}
-                 name={formField.alias}
-                 required={formField.required}
-                 type="text"
-                 pattern="{'[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}'}"
-               />
-             {:else if formField.type.name === 'Data Consent'}
-               <FormFieldControlset
-                 label={formField.name}
-                 name={formField.alias}
-                 options={[formField.settings.AcceptCopy]}
-                 required={formField.required}
-                 type="checkbox"
-               />
-               -->
+          {:else if formField.fieldType === 'Multiple choice'}
+            <FormFieldControlset
+              {...formField}
+              type="checkbox"
+            />
+          {:else if formField.fieldType === 'Single choice'}
+            <FormFieldControlset
+              {...formField}
+              type="radio"
+            />
+          {:else if formField.fieldType === 'Date'}
+            <FormFieldText {...formField}
+                           pattern="{'[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}'}"
+            />
+          {:else if formField.fieldType === 'Data Consent'}
+            <FormFieldControlset
+              {...formField}
+              options={[]}
+              _options={[formField?.settings?.AcceptCopy]}
+              type="checkbox"
+            />
           {:else}
             <div>No fieldType defined for {formField.fieldType}</div>
           {/if}
