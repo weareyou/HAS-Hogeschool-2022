@@ -7,13 +7,14 @@ const config = {
     preserve: ['ld+json'],
   }),
   kit: {
+    prerender: {
+      default: true,
+    },
     // By default, `npm run build` will create a standard Node app.
     // You can create optimized builds for different platforms by
     // specifying a different adapter
     adapter: adapter(),
 
-    // hydrate the <div id="app"> element in src/app.html
-    target: '#app',
     trailingSlash: 'never',
     csp: {
       directives: {
