@@ -3,27 +3,18 @@
   import ErrorMessage from '../../atoms/input/ErrorMessage.svelte';
   import InputTextarea from '../../atoms/input/InputTextarea.svelte';
 
-  export let name = '';
-  export let label = '';
-  export let hint = '';
-  export let required = false;
-  export let errorMessages = {};
+  export let label;
+  export let input;
+  export let errorMessages;
 </script>
 
 <div>
-  <Label
-    for="{name}"
-    hint={hint}
-    label="{label}"
-  />
+  <Label {...label} />
 
-  <InputTextarea
-    {name}
-    {required}
-  />
+  <InputTextarea {...input} />
 
   <ErrorMessage
     {errorMessages}
-    {name}
+    name={input.name}
   />
 </div>

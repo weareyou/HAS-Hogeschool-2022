@@ -21,74 +21,37 @@
 
 <Layer>
   <Retain size="lap">
-    <form action="" method="post" {novalidate} on:submit={handleSubmit}>
+    <form action="/api/submitForm" method="post" {novalidate} on:submit={handleSubmit}>
       <Flow>
         {#each formFields as formField}
-          {#if formField.type.name === 'Short answer'}
-            <FormFieldText
-              name={formField.alias}
-              label={formField.name}
-              hint={formField.hint}
-              required={formField.required}
-              type={formField.settings.FieldType}
-              autocomplete={formField.autocomplete}
-              errorMessages={formField.errorMessages}
-            />
-          {:else if formField.type.name === 'Long answer'}
-            <FormFieldTextarea
-              name={formField.alias}
-              label={formField.name}
-              hint={formField.hint}
-              required={formField.required}
-              errorMessages={formField.errorMessages}
-            />
-          {:else if formField.type.name === 'Dropdown'}
-            <FormFieldSelect
-              name={formField.alias}
-              label={formField.name}
-              hint={formField.hint}
-              required={formField.required}
-              options={formField.options}
-              errorMessages={formField.errorMessages}
-            />
-          {:else if formField.type.name === 'Multiple choice'}
+          {#if formField.fieldType === 'Short answer'}
+            <FormFieldText {...formField} />
+          {:else if formField.fieldType === 'Long answer'}
+            <FormFieldTextarea {...formField} />
+          {:else if formField.fieldType === 'Dropdown'}
+            <FormFieldSelect {...formField} />
+          {:else if formField.fieldType === 'Multiple choice'}
             <FormFieldControlset
-              name={formField.alias}
-              label={formField.name}
-              hint={formField.hint}
-              required={formField.required}
+              {...formField}
               type="checkbox"
-              options={formField.options}
-              errorMessages={formField.errorMessages}
             />
-          {:else if formField.type.name === 'Single choice'}
+          {:else if formField.fieldType === 'Single choice'}
             <FormFieldControlset
-              label={formField.name}
-              name={formField.alias}
-              hint={formField.hint}
-              options={formField.options}
-              required={formField.required}
+              {...formField}
               type="radio"
             />
-          {:else if formField.type.name === 'Date'}
-            <FormFieldText
-              autocomplete={formField.AutocompleteAttribute}
-              label={formField.name}
-              name={formField.alias}
-              required={formField.required}
-              type="text"
-              pattern="{'[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}'}"
+          {:else if formField.fieldType === 'Date'}
+            <FormFieldText {...formField}
+                           pattern="{'[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}'}"
             />
-          {:else if formField.type.name === 'Data Consent'}
+          {:else if formField.fieldType === 'Data Consent'}
             <FormFieldControlset
-              label={formField.name}
-              name={formField.alias}
-              options={[formField.settings.AcceptCopy]}
-              required={formField.required}
+              {...formField}
+              options={[{ key: 'y', value: formField.settings.AcceptCopy }]}
               type="checkbox"
             />
           {:else}
-            <div>No fieldType defined for {formField.type.name}</div>
+            <div>No fieldType defined for {formField.fieldType}</div>
           {/if}
         {/each}
 

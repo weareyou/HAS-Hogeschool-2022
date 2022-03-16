@@ -43,27 +43,35 @@ const handleSubmit = async (e) => {
     const newField = value;
     newField.touched = true;
     newField.validity = value.el.validity;
+    newField.value = value.el.value;
     $formState[key] = newField;
   });
   // set to state
   formState.set($formState);
   // check for errors
   if (Object.keys($errors).length) {
-    e.preventDefault();
     const firstKey = Object.keys($errors)[0];
     const firstField = $formState[firstKey].el;
     firstField.focus();
+    return false;
   }
 
   try {
+    const formData = Object.entries($formState).map(([name, obj]) => ({
+      name,
+      value: obj.value,
+    }));
+    const formId = 'f5d42b76-cde6-4f4b-8b4d-3cb86da44552';
     const req = await fetch('/api/submitForm', {
       method: 'post',
-      body: $formState,
+      body: JSON.stringify(formData),
+      headers: {
+        formId,
+      },
     });
-    // const res = await req.json();
     return await req.json();
   } catch (err) {
-    return 'Error';
+    return `Error: ${err}`;
   }
 };
 

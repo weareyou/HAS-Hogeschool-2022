@@ -3,34 +3,18 @@
   import InputText from '../../atoms/input/InputText.svelte';
   import ErrorMessage from '../../atoms/input/ErrorMessage.svelte';
 
-  export let name = '';
-  export let label = '';
-  export let hint = '';
-  export let required = false;
-  export let autocomplete = null;
-  export let type = null;
-  export let pattern = null;
-  export let errorMessages = {};
+  export let label;
+  export let input;
+  export let errorMessages;
 </script>
 
-
 <div>
-  <Label
-    for="{name}"
-    hint={hint}
-    label="{label}"
-  />
+  <Label {...label} />
 
-  <InputText
-    {autocomplete}
-    {name}
-    {required}
-    {type}
-    {pattern}
-  />
+  <InputText {...input} />
 
   <ErrorMessage
     {errorMessages}
-    {name}
+    name={input.name}
   />
 </div>

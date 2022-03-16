@@ -46,9 +46,9 @@
   >
     {#each options as option}
       <option
-        value="{option}"
+        value="{option.key}"
       >
-        {option}
+        {option.value}
       </option>
     {/each}
   </select>

@@ -16,6 +16,7 @@ const config = {
     adapter: adapter(),
 
     trailingSlash: 'never',
+    // todo: check if this works, because we're rendering statically
     csp: {
       directives: {
         'default-src': ['self'],

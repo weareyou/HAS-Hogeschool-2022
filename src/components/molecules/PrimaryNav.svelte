@@ -6,6 +6,18 @@
   export let activeSegment = '';
 </script>
 
+<style lang="scss">
+  @use 'src/sass/generic/utilities';
+
+  a {
+    text-decoration: none;
+
+    #{utilities.$global-interaction-states},
+    &[aria-current] {
+      text-decoration: underline;
+    }
+  }
+</style>
 <Layout fit gap="base" role="list">
   {#each items as item}
     <Cell role="listitem">
@@ -14,7 +26,6 @@
         aria-current={item.url.split('/')[1] === activeSegment ? 'page' : null}
       >
         {item.name}
-        {#if item.url.split('/')[1] === activeSegment}(current){/if}
       </a>
     </Cell>
   {/each}
