@@ -19,6 +19,7 @@ async function handler(event) {
     qs += `&${prop}=${value}`;
   });
   const url = `${API_ROOT}${pieces[1]}${qs}`;
+  // console.log(url); // to view the request to Umbraco
 
   try {
     const req = await fetch(url);
