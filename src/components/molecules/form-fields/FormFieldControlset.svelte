@@ -22,8 +22,8 @@
           {type}
           name={input.name}
           required={input.required}
-          label="{option}"
-          value="{option}"
+          label="{option.value}"
+          value="{option.key}"
         />
       </li>
     {/each}

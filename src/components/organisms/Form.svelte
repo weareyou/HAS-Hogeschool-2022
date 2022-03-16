@@ -47,8 +47,7 @@
           {:else if formField.fieldType === 'Data Consent'}
             <FormFieldControlset
               {...formField}
-              options={[]}
-              _options={[formField?.settings?.AcceptCopy]}
+              options={[{ key: 'y', value: formField.settings.AcceptCopy }]}
               type="checkbox"
             />
           {:else}
