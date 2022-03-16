@@ -4,8 +4,7 @@
   "description": "Using SvelteKit with Umbraco as a headless backend.",
   "type": "module",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "dev2": "netlify dev",
+    "dev": "netlify dev",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run",

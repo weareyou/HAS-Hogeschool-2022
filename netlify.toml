@@ -3,37 +3,27 @@ framework = "svelte-kit"
 command = "svelte-kit dev"
 
 
-[build]
-publish = "build/"
-command = "npm run build"
+# [build]
+# publish = "build/"
+# command = "npm run build"
 
 
-[[headers]]
-for = "/*"
+#[[headers]]
+#for = "/*"
 
-[headers.values]
-#Content-Security-Policy = "default-src 'self';  style-src 'self' 'unsafe-inline';  script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;"
-#Content-Security-Policy = "default-src 'self'; connect-src *"
-X-Frame-Options = "DENY"
-X-XSS-Protection = "1; mode=block"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "no-referrer"
-Permissions-Policy = "geolocation=(self)"
+#[headers.values]
+##Content-Security-Policy = "default-src 'self';  style-src 'self' 'unsafe-inline';  script-src 'self' 'unsafe-inline' 'unsafe-eval'; connect-src *;"
+##Content-Security-Policy = "default-src 'self'; connect-src *"
+#X-Frame-Options = "DENY"
+#X-XSS-Protection = "1; mode=block"
+#X-Content-Type-Options = "nosniff"
+#Referrer-Policy = "no-referrer"
+#Permissions-Policy = "geolocation=(self)"
 
 #[context.production]
 #Content-Security-Policy = "default-src 'self';"
 
 
-#[[redirects]]
-#from = "/img/*"
-#to = "/.netlify/builders/img"
-#status = 200
-#
-#[[redirects]]
-#from = "api/submitForm"
-#to = "/.netlify/functions/submitForm"
-#status = 200
-
-[functions]
+#[functions]
 #directory = "functions"
-node_bundler = "esbuild"
+#node_bundler = "esbuild"
