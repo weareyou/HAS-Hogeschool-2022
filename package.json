@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "netlify dev",
     "build": "svelte-kit build",
+    "build-for-preview": "svelte-kit build --adapter=netlify",
     "preview": "svelte-kit preview",
     "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run",
     "lint:styles": "stylelint src/**/*.{svelte,scss}",
