@@ -21,9 +21,20 @@ exports.handler = async (event) => {
   data.forEach((obj) => {
     formData.append(obj.name, obj.value);
   });
+
+  // set auth headers
+  const username = process.env.VITE_UMBRACO_USERNAME;
+  const password = process.env.VITE_UMBRACO_PASSWORD;
+
+  // get headers object, append auth header
+  const headers = formData.getHeaders();
+  headers.Authorization = `Basic ${btoa(`${username}:${password}`)}`;
+
   try {
     // axios' way of submitting FormData()
-    const req = await axios.post(url, formData, { headers: formData.getHeaders() });
+    const req = await axios.post(url, formData, {
+      headers,
+    });
     return {
       statusCode: 200,
       body: JSON.stringify(req.data),
@@ -31,7 +42,7 @@ exports.handler = async (event) => {
   } catch (e) {
     return {
       statusCode: 500,
-      body: e,
+      body: e.toString(),
     };
   }
 };

@@ -7,6 +7,7 @@
   // export let modifier = '';
   export let isActive = false;
   export let onClick = null;
+  export let disabled = false;
 
   let className = '';
   export { className as class };
@@ -36,10 +37,14 @@
 
     #{utilities.$global-interaction-states},
     &[aria-current] {
-      background-color: var(--color-gray-medium);
+      background-color: var(--color-gray-light);
       color: var(--color-black);
       text-decoration: none;
       outline: none;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
     }
   }
 
@@ -56,26 +61,7 @@
     display: flex;
     padding: var(--space-small);
   }
-
-
-  /*  Modifier
-      ========================================================================= */
-
-  /*
-  .c-button--transparent {
-    box-shadow: none;
-    background-color: var(--transparent-green);
-    color: var(--color-foreground);
-
-    #{utilities.$global-interaction-states},
-    &[aria-current='true'] {
-      box-shadow: 0 0 0 1px var(--color-black);
-    }
-  }
-   */
 </style>
-
-<!--  -->
 
 <button
   class="c-button  {className}"
@@ -83,6 +69,7 @@
   on:click={onClick}
   {type}
   aria-current={isActive ? 'true' : null}
+  {disabled}
 >
   <span class="c-button__inner">
     <span class="c-button__label" class:u-visually-hidden="{hideLabel}">
