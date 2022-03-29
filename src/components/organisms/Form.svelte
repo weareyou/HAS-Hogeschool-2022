@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { handleSubmit } from '../../utils/form';
+  import { validateForm } from '../../utils/form';
   import Layer from '../atoms/objects/Layer.svelte';
   import Retain from '../atoms/objects/Retain.svelte';
   import Flow from '../atoms/objects/Flow.svelte';
@@ -12,6 +12,8 @@
 
   export let formFields = [];
   export let submitLabel = '';
+  export let name = '';
+  export let id = '';
 
   let novalidate = null;
   let submitting = false;
@@ -21,39 +23,29 @@
   });
 
   const handleSubmitForm = async (e) => {
+    const res = validateForm(e);
+    if (!res) {
+      return;
+    }
+
+    const form = e.target;
+    const formData = new FormData(form);
     submitting = true;
-    const res = await handleSubmit(e);
-    if (res.success) {
+    const req = await fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        formid: id,
+      },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    const res2 = await req.json();
+
+    submitting = false;
+    if (res2.success) {
       submitted = true;
     }
-    /*
-    const res = {
-    'formId': 'f5d42b76-cde6-4f4b-8b4d-3cb86da44552',
-      'formData': [
-        {
-          'key': 'name',
-          'value': [
-            'asdf',
-          ],
-        },
-        {
-          'key': 'email',
-          'value': [
-            '',
-          ],
-        },
-        {
-          'key': 'message',
-          'value': [
-            '',
-          ],
-        },
-      ],
-      'validationErrors': null,
-      'success': true,
-    };
-    */
-    submitting = false;
   };
 </script>
 
@@ -62,6 +54,7 @@
     {#if submitted}
       <h1>That went well.</h1>
     {:else}
+      <h1>{name}</h1>
       <form action="/api/submitForm" method="post" {novalidate} on:submit={handleSubmitForm}>
         <Flow>
           {#each formFields as formField}

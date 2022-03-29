@@ -36,7 +36,7 @@ errors.subscribe((value) => {
   $errors = value;
 });
 
-const handleSubmit = async (e) => {
+const validateForm = (e) => {
   e.preventDefault();
   // loop over fields
   Object.entries($formState).forEach(([key, value]) => {
@@ -56,23 +56,7 @@ const handleSubmit = async (e) => {
     return false;
   }
 
-  try {
-    const formData = Object.entries($formState).map(([name, obj]) => ({
-      name,
-      value: obj.value,
-    }));
-    const formId = 'f5d42b76-cde6-4f4b-8b4d-3cb86da44552';
-    const req = await fetch('/api/submitForm', {
-      method: 'post',
-      body: JSON.stringify(formData),
-      headers: {
-        formId,
-      },
-    });
-    return await req.json();
-  } catch (err) {
-    return `Error: ${err}`;
-  }
+  return true;
 };
 
 const register = (el) => {
@@ -101,5 +85,5 @@ const register = (el) => {
 };
 
 export {
-  formState, errors, handleSubmit, register,
+  formState, errors, validateForm, register,
 };
