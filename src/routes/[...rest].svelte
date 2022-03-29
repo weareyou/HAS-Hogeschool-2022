@@ -23,16 +23,25 @@
 </script>
 
 <script>
-  import Meta from './_templates/$Meta.svelte';
+  import Head from './_templates/_Head.svelte';
   import ModularPageTemplate from './_templates/$ModularPageTemplate.svelte';
+  import Header from '../components/organisms/global/Header.svelte';
+  import Footer from '../components/organisms/global/Footer.svelte';
 
   export let data;
+  const navItems = [];
 </script>
 
-<Meta {...data} />
+<Head {...data} />
 
-{#if data.system.contentType === 'modularPage'}
-  <ModularPageTemplate modules={data.fields.grid} />
-{:else}
-  <p>Error: no template defined for contentType <code>{data.system.contentType}</code>.</p>
-{/if}
+<Header items={navItems} />
+
+<main id="main">
+  {#if data.system.contentType === 'modularPage'}
+    <ModularPageTemplate modules={data.fields.grid} />
+  {:else}
+    <p>Error: no template defined for contentType <code>{data.system.contentType}</code>.</p>
+  {/if}
+</main>
+
+<Footer />

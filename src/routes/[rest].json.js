@@ -15,6 +15,7 @@ export async function get(req) {
       },
     });
     data = await res.json();
+    console.log(data);
   } catch (e) {
     data = {
       error: 'Content api not available',

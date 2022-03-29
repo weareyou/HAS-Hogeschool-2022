@@ -39,6 +39,10 @@
 <svelte:head>
   <title>{fields.pageTitle || system.name}</title>
   <meta content="{fields.pageDescription}" name="description" />
+
+  {#each fields.alternate as { culture, url }}
+    <link rel="alternate" hreflang={culture} href={url} />
+  {/each}
   <!--
    <title>{title} • {siteName}</title>
    {#if author}
