@@ -18,7 +18,6 @@
   // }
 
   const getSrcset = ({ format = 'jpg' }) => {
-    // console.log(format);
     if (sizes) {
       srcset = sizes.map((size) => `${path}/width:${size}/format:${format}::${url} ${size}w`);
     }

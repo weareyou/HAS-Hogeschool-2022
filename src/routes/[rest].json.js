@@ -15,20 +15,19 @@ export async function get(req) {
       },
     });
     data = await res.json();
-    console.log(data);
+    // console.log(data, api);
   } catch (e) {
     data = {
       error: 'Content api not available',
       errorCode: '502',
-      call: api,
-      thing: url,
+      api,
+      url,
     };
   }
 
   return {
     body: {
       ...data,
-      call: url,
     },
   };
 }

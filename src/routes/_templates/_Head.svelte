@@ -32,16 +32,27 @@
     name: siteName,
   }];
    */
-  export let system;
-  export let fields;
+  export let title = '';
+  export let description = '';
+  export let alternate = [];
 </script>
 
 <svelte:head>
-  <title>{fields.pageTitle || system.name}</title>
-  <meta content="{fields.pageDescription}" name="description" />
+  <title>{title}</title>
+  <meta content="{description}" name="description">
 
-  {#each fields.alternate as { culture, url }}
-    <link rel="alternate" hreflang={culture} href={url} />
+  <meta content="Unique page title - My Site" property="og:title">
+  <meta content="Page description" property="og:description">
+  <meta content="https://www.mywebsite.com/image.jpg" property="og:image">
+  <meta content="Image description" property="og:image:alt">
+  <meta content="en_GB" property="og:locale">
+  <meta content="website" property="og:type">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="https://www.mywebsite.com/page" property="og:url">
+  <link href="https://www.mywebsite.com/page" rel="canonical">
+
+  {#each alternate as { culture, url }}
+    <link rel="alternate" hreflang={culture} href={url}>
   {/each}
   <!--
    <title>{title} • {siteName}</title>

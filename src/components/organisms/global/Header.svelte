@@ -6,8 +6,8 @@
   import Retain from '../../atoms/objects/Retain.svelte';
   import Button from '../../atoms/Button.svelte';
 
-  export let segments = [];
   export let items = [];
+  export let homeUrl = '/';
 </script>
 
 <style lang="scss">
@@ -33,14 +33,14 @@
     <Layout fit gap="base" justify>
       <Cell>
         <p>
-          <a href="/">
+          <a href={homeUrl}>
             <mark>Logo</mark>
           </a>
         </p>
       </Cell>
 
       <Cell>
-        <PrimaryNav activeSegment={segments[1]} items={items} />
+        <PrimaryNav items={items} />
       </Cell>
     </Layout>
   </Retain>
