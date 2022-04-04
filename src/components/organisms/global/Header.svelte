@@ -1,13 +1,13 @@
 <script>
-  import PrimaryNav from '../../molecules/PrimaryNav.svelte';
+  import PrimaryNav from '../../molecules/Header/PrimaryNav.svelte';
   import Layout from '../../atoms/objects/Layout.svelte';
-  import Cell from '../../atoms/objects/Cell.svelte';
   import Layer from '../../atoms/objects/Layer.svelte';
   import Retain from '../../atoms/objects/Retain.svelte';
   import Button from '../../atoms/Button.svelte';
+  import LanguageNav from '../../molecules/Header/LanguageNav.svelte';
 
-  export let label = '';
-  export let items = [];
+  export let skipToContentLabel = '';
+  export let primaryNav;
   export let homeUrl = '/';
   export let languages;
 </script>
@@ -27,43 +27,23 @@
 <Button
   class="c-skip-link"
   href="#main"
-  label="Ga naar de inhoud"
+  label={skipToContentLabel}
 />
 
 <header>
   <Layer>
     <Retain>
+
       <Layout alignInline="end" fit>
-        <Cell>
-          <Layout fit gap="base" role="list">
-            {#each languages as { lang, label, isActive, url }}
-              <Cell>
-                <a
-                  href={url}
-                  aria-current={isActive}
-                  lang={lang}
-                >
-                  {label}
-                </a>
-              </Cell>
-            {/each}
-          </Layout>
-        </Cell>
-
+        <LanguageNav {...languages} />
       </Layout>
-      <br>
-      <Layout fit gap="base" justify>
-        <Cell>
-          <p>
-            <a href={homeUrl}>
-              <mark>Logo</mark>
-            </a>
-          </p>
-        </Cell>
 
-        <Cell>
-          <PrimaryNav items={items} label={label} />
-        </Cell>
+      <Layout fit gap="base" justify>
+        <a href={homeUrl}>
+          <mark>Logo</mark>
+        </a>
+
+        <PrimaryNav {...primaryNav} />
       </Layout>
     </Retain>
   </Layer>

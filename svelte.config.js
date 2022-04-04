@@ -23,6 +23,12 @@ const config = {
         'connect-src': ['*'],
       },
     },
+
+    vite: {
+      css: {
+        devSourcemap: true,
+      },
+    },
   },
 };
 
