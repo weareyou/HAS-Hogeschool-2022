@@ -20,10 +20,12 @@
           <Text markdown="{text}" />
         </Cell>
         <Cell lap="6">
-          <figure>
-            <Img {...image} sizes={[654, 1024, 1208]} />
-            <figcaption>{caption}</figcaption>
-          </figure>
+          {#if image}
+            <figure>
+              <Img {...image} sizes={[654, 1024, 1208]} />
+              <figcaption>{caption}</figcaption>
+            </figure>
+          {/if}
         </Cell>
       </Layout>
     </Retain>
