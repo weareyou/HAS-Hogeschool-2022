@@ -29,10 +29,6 @@
   .c-label__label {
     font-weight: var(--font-weight-bold);
   }
-
-  .c-label__hint {
-    font-size: var(--font-size-milli);
-  }
 </style>
 
 {#if isLegend}

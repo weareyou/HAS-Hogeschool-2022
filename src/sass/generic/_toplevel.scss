@@ -18,11 +18,9 @@ html {
   --color-error: #ff0000;
 
   // fonts
-  --font-family-primary: #{vars.$font-primary};
-
-  // --font-family-secondary: 'Insignia', sans-serif;
+  --font-family-primary: 'Source Sans Pro', sans-serif;
+  --font-family-secondary: 'Predige Rounded', sans-serif;
   --font-weight-bold: 700;
-  --font-size-milli: #{vars.$milli};
 
   // animations
   --base-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
@@ -42,14 +40,6 @@ html {
   font-size: responsive.lock(vars.$font-size, vars.$font-size + 4px, desk, tv);
 }
 
-body {
-  // ja
-}
-
 figure {
   margin: 0;
-}
-
-img {
-  width: 100%;
 }

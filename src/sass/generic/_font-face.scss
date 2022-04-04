@@ -3,18 +3,56 @@
     custom font declarations
     ========================================================================= */
 
-/* open-sans-300 - latin */
-
-/*
+/* source-sans-pro-regular - latin */
 @font-face {
-  font-family: Open Sans;
+  font-family: Source Sans Pro;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src:
-    local('Open Sans Regular'),
-    local('OpenSans-Regular'),
-    url('/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400regular.woff2') format('woff2'),
-    url('/assets/fonts/open-sans-v15-latin/open-sans-v15-latin-400regular.woff') format('woff');
+  src: url('/src/sass/fonts/source-sans-pro-v19-latin/source-sans-pro-v19-latin-regular.woff2') format('woff2');
 }
-*/
+
+/* source-sans-pro-italic - latin */
+@font-face {
+  font-family: Source Sans Pro;
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/src/sass/fonts/source-sans-pro-v19-latin/source-sans-pro-v19-latin-regular.woff2') format('woff2');
+}
+
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/src/sass/fonts/source-sans-pro-v19-latin/source-sans-pro-v19-latin-700.woff2') format('woff2');
+}
+
+/* source-sans-pro-700italic - latin */
+@font-face {
+  font-family: Source Sans Pro;
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/src/sass/fonts/source-sans-pro-v19-latin/source-sans-pro-v19-latin-700italic.woff2') format('woff2');
+}
+
+/* predige-rounded-bold - latin */
+@font-face {
+  font-family: Predige Rounded;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/src/sass/fonts/PredigeRounded/predigerounded-bold-webfont.woff2') format('woff2');
+}
+
+/* predige-rounded-regular - latin */
+@font-face {
+  font-family: Predige Rounded;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/src/sass/fonts/PredigeRounded/predigerounded-regular.woff2') format('woff2');
+}
