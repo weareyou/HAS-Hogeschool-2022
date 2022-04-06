@@ -31,7 +31,11 @@
   export let data;
 </script>
 
-<Head {...data} />
+<Head
+  alternate={data.alternate}
+  description={data.description}
+  title={data.title}
+/>
 
 <Header {...data.navigation} homeUrl={data.homeUrl} />
 

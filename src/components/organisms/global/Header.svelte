@@ -5,6 +5,7 @@
   import Retain from '../../atoms/objects/Retain.svelte';
   import Button from '../../atoms/Button.svelte';
   import LanguageNav from '../../molecules/Header/LanguageNav.svelte';
+  import logo from './logo-has.svg';
 
   export let skipToContentLabel = '';
   export let primaryNav;
@@ -31,19 +32,26 @@
 />
 
 <header>
-  <Layer>
+  <Layer size="base">
     <Retain>
-
-      <Layout alignInline="end" fit>
-        <LanguageNav {...languages} />
-      </Layout>
 
       <Layout fit gap="base" justify>
         <a href={homeUrl}>
-          <mark>Logo</mark>
+          <img alt="HAS Hogeschool logo" src="{logo}" />
         </a>
 
-        <PrimaryNav {...primaryNav} />
+        <div>
+          <Layout alignInline="end" fit>
+            <LanguageNav {...languages} />
+          </Layout>
+
+          <br />
+
+          <Layout alignInline="end" fit>
+            <PrimaryNav {...primaryNav} />
+          </Layout>
+        </div>
+
       </Layout>
     </Retain>
   </Layer>

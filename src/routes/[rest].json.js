@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/prefer-default-export
 export async function get(req) {
   const url = decodeURIComponent(req.params.rest);
-  const api = `${import.meta.env.VITE_UMBRACO_API_URL}content/?route=/${url}`;
+  const api = `${import.meta.env.VITE_UMBRACO_API_URL}content/?site=1106&route=/${url}`;
   const username = import.meta.env.VITE_UMBRACO_USERNAME;
   const password = import.meta.env.VITE_UMBRACO_PASSWORD;
   let data;
@@ -19,7 +19,7 @@ export async function get(req) {
   } catch (e) {
     data = {
       error: 'Content api not available',
-      errorCode: '502',
+      errorCode: 502,
       api,
       url,
     };
