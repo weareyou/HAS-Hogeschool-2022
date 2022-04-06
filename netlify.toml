@@ -11,7 +11,7 @@ command = "npm run build"
 for = "/*"
 
 [headers.values]
-Content-Security-Policy = "default-src 'self';"
+# Content-Security-Policy = "default-src 'self';"
 X-Frame-Options = "DENY"
 X-Content-Type-Options = "nosniff"
 Referrer-Policy = "no-referrer"
