@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ fetch }) {
-    const res = await fetch('home.json');
+    const res = await fetch('/home.json');
     const data = await res.json();
 
     if (data.error) {
