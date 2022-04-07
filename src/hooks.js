@@ -6,7 +6,6 @@ export async function handle({ event, resolve }) {
     return resolve(event);
   }
 
-  console.log(lang, event);
   return resolve(event, {
     // todo: works for SSR, not for SPA page switch :(
     // transformPage: ({ html }) => html.replace('<html lang="nl"', `<html lang="${lang}"`),
