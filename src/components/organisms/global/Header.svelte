@@ -37,7 +37,7 @@
 
       <Layout fit gap="base" justify>
         <a href={homeUrl}>
-          <img alt="HAS Hogeschool logo" src="{logo}" />
+          <img alt="HAS Hogeschool logo" height="106" src="{logo}" width="134" />
         </a>
 
         <div>
