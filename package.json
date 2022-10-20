@@ -57,7 +57,7 @@
     "postcss-html": "^1.2.0",
     "postcss-preset-env": "^7.0.0",
     "sass": "^1.43.4",
-    "svelte": "^3.44.2",
+    "svelte": "^3.49.0",
     "svelte-preprocess": "^4.8.0",
     "svgo": "^2.8.0",
     "svgstore-cli": "^2.0.1",
