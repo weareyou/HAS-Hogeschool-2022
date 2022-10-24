@@ -1,7 +1,6 @@
-// otherwise it doesn't work
-// eslint-disable-next-line import/prefer-default-export
-export async function get(req) {
-  const url = decodeURIComponent(req.params.rest);
+export async function pageData(params) {
+  // const url = decodeURIComponent(params.rest);
+  const url = params.rest || 'home';
   const api = `${import.meta.env.VITE_UMBRACO_API_URL}content/?site=1106&route=/${url}`;
   const username = import.meta.env.VITE_UMBRACO_USERNAME;
   const password = import.meta.env.VITE_UMBRACO_PASSWORD;
@@ -26,8 +25,8 @@ export async function get(req) {
   }
 
   return {
-    body: {
-      ...data,
-    },
+    // body: {
+    ...data,
+    // },
   };
 }

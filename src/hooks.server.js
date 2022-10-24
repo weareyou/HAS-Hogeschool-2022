@@ -9,6 +9,6 @@ export async function handle({ event, resolve }) {
   return resolve(event, {
     // todo: works for SSR, not for SPA page switch :(
     // transformPage: ({ html }) => html.replace('<html lang="nl"', `<html lang="${lang}"`),
-    transformPage: ({ html }) => html.replace('<html', `<html lang="${lang}"`),
+    transformPageChunk: ({ html }) => html.replace('<html', `<html lang="${lang}"`),
   });
 }

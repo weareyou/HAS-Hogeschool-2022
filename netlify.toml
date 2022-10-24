@@ -1,6 +1,6 @@
 [dev]
 framework = "svelte-kit"
-command = "svelte-kit dev"
+command = "vite dev"
 
 [build]
 publish = "build/"

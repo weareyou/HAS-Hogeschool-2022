@@ -1,11 +1,11 @@
 {
-  "name": "werken-bij-ggd-fryslan",
+  "name": "jamstack-on-umbraco",
   "version": "1.0.0",
   "description": "Using SvelteKit with Umbraco as a headless backend.",
   "type": "module",
   "scripts": {
     "dev": "netlify dev",
-    "build": "svelte-kit build",
+    "build": "vite build",
     "preview": "svelte-kit preview",
     "local-umbraco": "cd ../backend/backend/src/WerkenBijGGDFriesland.Web && dotnet run",
     "lint:styles": "stylelint src/**/*.{svelte,scss}",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/weareyou/werkenbijggdfryslan.nl"
+    "url": "git+https://github.com/weareyou/JAMstack-on-Umbraco.git"
   },
   "author": "iO",
   "contributors": [
@@ -42,7 +42,8 @@
     "eslint-plugin-svelte3": "^3.2.1",
     "stylelint": "^14.2.0",
     "stylelint-config-html": "^1.0.0",
-    "stylelint-use-logical-spec": "^3.2.2"
+    "stylelint-use-logical-spec": "^3.2.2",
+    "vite": "^3.1.8"
   },
   "dependencies": {
     "@supple-kit/supple-css": "^5.1.0",
